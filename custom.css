@@ -36,175 +36,153 @@
 
   .amenities p { margin: 0; }
 
-/* ===== Brand tokens (you can edit) ===== */
-  :root{
-    --brand:#0a7cff;
-    --brand-dark:#0660cc;
-    --surface:rgba(255,255,255,.82);
-    --text:#111827;
-    --muted:#6b7280;
-    --radius:12px;
-  }
+/* ===========================
+   BOOKING STRIP – SAFE SCOPED
+   =========================== */
 
-  /* ===== SEARCH BAR WRAPPER ===== */
-  #b24scroller.b24-bookingstrip{
-    background: var(--surface);
-    backdrop-filter: saturate(160%) blur(8px);
-    border-radius: var(--radius);
-    padding: 12px;
-    box-shadow: 0 10px 24px rgba(0,0,0,.08);
-    margin: 10px 0 18px;
-  }
+/* Wrapper look */
+#b24scroller.b24-bookingstrip{
+  background: rgba(255,255,255,.82);
+  backdrop-filter: saturate(160%) blur(8px);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  margin: 10px 0 18px;
+  position: relative;
+  z-index: 1;            /* prevent odd overlaps */
+  direction: ltr;
+  text-align: left;
+}
 
-  /* Turn the inner row into a responsive grid (5 -> 3 -> 2 -> 1) */
-  #b24scroller .row{
-    display:grid !important;
-    grid-template-columns: repeat(5, minmax(160px,1fr));
-    gap:10px;
-    align-items:end;
-  }
-  /* Kill bootstrap floats so grid can take over */
-  #b24scroller .row > [class*="col-"]{
-    float:none !important;
-    width:auto !important;
-    padding:0 !important;
-  }
+/* Use flex only INSIDE the booking strip (do not touch global .row) */
+#b24scroller.b24-bookingstrip > .row{
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-end;
+}
 
-  @media (max-width:1200px){ #b24scroller .row{ grid-template-columns:repeat(3,1fr);} }
-  @media (max-width:820px){  #b24scroller .row{ grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:520px){  #b24scroller .row{ grid-template-columns:1fr;} }
+/* Only target the booking fields, not every .row child */
+#b24scroller .b24-selector-checkin,
+#b24scroller .b24-selector-checkout,
+#b24scroller .b24-selector-numnight,
+#b24scroller .b24-selector-numadult,
+#b24scroller .b24-selector-numchild{
+  float: none !important;          /* neutralize Bootstrap float */
+  width: auto !important;
+  padding: 0 !important;
+  flex: 1 1 180px;                 /* responsive cells */
+  min-width: 180px;
+}
 
-  /* Labels */
-  #b24scroller .control-label{
-    display:block;
-    margin:0 0 4px;
-    font-size:12px;
-    font-weight:600;
-    color:#4b5563;
-  }
+/* Labels */
+#b24scroller .control-label{
+  display:block;
+  margin:0 0 4px;
+  font-size:12px;
+  font-weight:600;
+  color:#4b5563;
+}
 
-  /* Input groups (calendar icon + input) */
-  #b24scroller .input-group.date{
-    display:flex;
-    align-items:center;
-    width:100%;
-  }
-  #b24scroller .input-group-addon{
-    background:#fff;
-    border:1px solid #dfe3ea;
-    border-right:none;
-    border-radius:8px 0 0 8px;
-    padding:0 10px;
-    color:var(--brand-dark);
-  }
-  #b24scroller .glyphicon{
-    top:0; /* remove bootstrap offset */
-  }
+/* Input group (calendar + input) */
+#b24scroller .input-group.date{
+  display:flex;
+  align-items:center;
+  width:100%;
+}
+#b24scroller .input-group-addon{
+  background:#fff;
+  border:1px solid #dfe3ea;
+  border-right:none;
+  border-radius:8px 0 0 8px;
+  padding:0 10px;
+  color:#0660cc;
+}
+#b24scroller .glyphicon{ top:0; }
 
-  /* Inputs & selects */
-  #b24scroller .form-control{
-    height:40px;
-    width:100%;
-    border:1px solid #dfe3ea;
-    border-radius:0 8px 8px 0;  /* mates with addon */
-    padding:0 12px;
-    background:#fff;
-    color:var(--text);
-    box-shadow:none;
-    transition: border-color .15s ease, box-shadow .15s ease;
-  }
-  /* Standalone selects/inputs (no addon) */
-  #b24scroller .b24-selector-numnight .form-control,
-  #b24scroller .b24-selector-numadult .form-control,
-  #b24scroller .b24-selector-numchild .form-control{
-    border-radius:8px;
-  }
+/* Inputs/selects */
+#b24scroller .form-control{
+  height:40px;
+  width:100%;
+  border:1px solid #dfe3ea;
+  border-radius:0 8px 8px 0;  /* mates with addon */
+  padding:0 12px;
+  background:#fff;
+  color:#111827;
+  box-shadow:none;
+  transition: border-color .15s ease, box-shadow .15s ease;
+}
+/* Standalone selects (no addon) */
+#b24scroller .b24-selector-numnight .form-control,
+#b24scroller .b24-selector-numadult .form-control,
+#b24scroller .b24-selector-numchild .form-control{
+  border-radius:8px;
+}
+#b24scroller .form-control:focus{
+  outline:none;
+  border-color:#0a7cff;
+  box-shadow:0 0 0 3px rgba(10,124,255,.15);
+}
 
-  #b24scroller .form-control:focus{
-    outline:none;
-    border-color:var(--brand);
-    box-shadow:0 0 0 3px rgba(10,124,255,.15);
-  }
+/* Responsive breakpoints for the strip only */
+@media (max-width:1200px){
+  #b24scroller .b24-selector-checkin,
+  #b24scroller .b24-selector-checkout{ flex:1 1 240px; }
+}
+@media (max-width:820px){
+  #b24scroller .b24-selector-checkin,
+  #b24scroller .b24-selector-checkout,
+  #b24scroller .b24-selector-numnight,
+  #b24scroller .b24-selector-numadult,
+  #b24scroller .b24-selector-numchild{ flex:1 1 48%; }
+}
+@media (max-width:520px){
+  #b24scroller .b24-selector-checkin,
+  #b24scroller .b24-selector-checkout,
+  #b24scroller .b24-selector-numnight,
+  #b24scroller .b24-selector-numadult,
+  #b24scroller .b24-selector-numchild{ flex:1 1 100%; }
+}
 
-  /* Optional: force LTR if a theme flips it */
-  #b24scroller{ direction:ltr; text-align:left; }
+/* ==================
+   PRICE + BOOK BUTTON
+   ================== */
 
-/* ---- PRICE BLOCK ---- */
-  /* Center the whole price line even if Bootstrap sets text-right */
-  .b24-offer-select .text-right,
-  #price-roomprice-1-591041 {
-    text-align: center !important;
-  }
+/* Center the price block */
+.b24-offer-select .text-right{ text-align:center !important; }
 
-  /* Currency + amount */
-  .b24-offer-select .bookingpagecurrency {
-    font-size: 13px;
-    color: #111;
-    margin-right: 4px;
-    vertical-align: baseline;
-  }
-  /* Some themes use bookingpagedollars / bookingpageamount. Cover both. */
-  .b24-offer-select .bookingpagedollars,
-  .b24-offer-select .bookingpageamount,
-  #price-roomprice-1-591041 .bookingpagedollars,
-  #price-roomprice-1-591041 .bookingpageamount {
-    font-size: 24px;
-    font-weight: 800;
-    letter-spacing: .2px;
-    color: #111827;
-  }
+/* Currency + amount */
+.b24-offer-select .bookingpagecurrency{ font-size:13px; color:#111; margin-right:4px; }
+.b24-offer-select .bookingpagedollars,
+.b24-offer-select .bookingpageamount{ font-size:24px; font-weight:800; color:#111827; }
+.b24-offer-select .personperday{ display:block; margin-top:4px; font-size:12px; color:#6b7280; }
 
-  /* "per person" / "per night" line */
-  .b24-offer-select .personperday,
-  #price-roomprice-1-591041 .personperday {
-    display: block;
-    margin-top: 4px;
-    font-size: 12px;
-    color: #6b7280;
-  }
+/* Button container */
+.b24-roombuttondiv{ text-align:center; margin-top:8px; }
 
-  /* ---- BOOK BUTTON ---- */
-  /* Center the button container */
-  .b24-roombuttondiv { text-align: center; margin-top: 8px; }
+/* Actual button element (input[type=submit].button_at_booking) */
+.b24-roombuttondiv .button_at_booking{
+  float:none !important; border:0 !important;
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:140px; height:44px; padding:0 18px; line-height:1;
+  border-radius:10px; cursor:pointer;
+  background:linear-gradient(180deg,#0a7cff,#0660cc) !important;
+  color:#fff !important; font-weight:700;
+  box-shadow:0 8px 18px rgba(10,124,255,.30);
+  transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+.b24-roombuttondiv .button_at_booking:hover{
+  transform:translateY(-1px);
+  box-shadow:0 12px 26px rgba(10,124,255,.35);
+  filter:brightness(1.03);
+}
+.b24-roombuttondiv .button_at_booking:active{
+  transform:none;
+  box-shadow:0 6px 14px rgba(10,124,255,.25);
+}
 
-  /* Actual button element from your snippet */
-  .b24-roombuttondiv .button_at_booking {
-    /* neutralize bootstrap */
-    float: none !important;
-    border: 0 !important;
-    box-shadow: none;
-
-    /* new look */
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 140px;
-    height: 44px;
-    padding: 0 18px;
-    border-radius: 10px;
-    background: linear-gradient(180deg, #0a7cff, #0660cc);
-    color: #fff !important;
-    font-weight: 700;
-    line-height: 1;
-    cursor: pointer;
-
-    /* lift */
-    box-shadow: 0 8px 18px rgba(10,124,255,.30);
-    transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
-  }
-  .b24-roombuttondiv .button_at_booking:hover{
-    transform: translateY(-1px);
-    box-shadow: 0 12px 26px rgba(10,124,255,.35);
-    filter: brightness(1.03);
-  }
-  .b24-roombuttondiv .button_at_booking:active{
-    transform: translateY(0);
-    box-shadow: 0 6px 14px rgba(10,124,255,.25);
-  }
-
-  /* Small screens: give the button full width if you prefer */
-  @media (max-width: 520px){
-    .b24-roombuttondiv .button_at_booking{ width: 100%; min-width: 0; }
-  }
+@media (max-width:520px){
+  .b24-roombuttondiv .button_at_booking{ width:100%; min-width:0; }
+}
 
 </style>
