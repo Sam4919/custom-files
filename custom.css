@@ -27,24 +27,39 @@
 
 /* Fallback when there is NO .amenities wrapper */
 .amenity{
-  display:inline-flex;            /* force side-by-side */
-  vertical-align:top;
-  width:calc(33.333% - 12px);
-  margin:6px; box-sizing:border-box;
-  padding:6px 10px; border-radius:6px; background:#fff;
-  box-shadow:0 0 8px rgba(0,115,230,.15);
+  display: inline-flex !important;
+  align-items: center;
+  vertical-align: top;
+  width: calc(33.333% - 12px);
+  margin: 6px;
+  box-sizing: border-box;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #fff;
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #333;
+  box-shadow: 0 0 8px rgba(0, 115, 230, 0.15);
 }
-.amenity i{ color:#0073e6; font-size:16px; }
+.amenity i{ color: #0073e6;
+  font-size: 16px;
+  margin-right: 8px; }
 
-@media (max-width:1020px){
-  .amenity{ width:calc(50% - 12px) !important; display:inline-flex !important; }
+@media (max-width: 1024px) {
+  .amenity {
+    width: calc(50% - 12px) !important;
+  }
 }
-@media (max-width:640px){
-  .amenity{ width:100% !important; margin:6px 0; display:flex !important; }
+
+@media (max-width: 640px) {
+  .amenity {
+    width: 100% !important;
+    margin: 6px 0 !important;
+  }
 }
 
 /* Remove bullets/padding if inside lists */
-ul .amenity, ol .amenity{ list-style:none; }
+ul .amenity, ol .amenity { list-style: none; }
 ul.amenities, ol.amenities{ padding-left:0; margin-left:0; }
 
 /* Restore Bootstrap floats for room/amenities columns (in case any rule disabled them) */
@@ -54,6 +69,12 @@ ul.amenities, ol.amenities{ padding-left:0; margin-left:0; }
 #b24roomview .row>[class*="col-"]{
   float:left !important;
   padding-left:15px; padding-right:15px;
+}
+
+@media (max-width:1020px){
+  #roomview, #b24roomview, .b24-module {
+    padding-top: 80px !important;
+  }
 }
 
 /* ---------------------------------
@@ -68,8 +89,8 @@ ul.amenities, ol.amenities{ padding-left:0; margin-left:0; }
   box-shadow:0 10px 24px rgba(0,0,0,.08);
   max-width:1120px;                 /* centered container */
   margin:10px auto 40px;            /* bottom gap so it never touches title */
-  position:relative;
-  z-index:0;                        /* never overlay following content */
+  position: relative !important;
+  z-index: 0 !important;                        /* never overlay following content */
   direction:ltr; text-align:left;
   overflow:visible;                  /* allow shadows to render */
 }
