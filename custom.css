@@ -5,55 +5,49 @@
 
 /* Preferred wrapper grid (3 / 2 / 1 columns) */
 .amenities{
-  display: grid !important;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  direction: ltr;
-  text-align: left;
-  font-family: sans-serif;
-  font-size: 14px;
-  color: #333;
-  margin: 20px 0;
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+  direction:ltr; text-align:left;
+  font-family:sans-serif; font-size:14px; color:#333;
+  margin:20px 0;
 }
-.amenities > * { width: auto !important; } /* defeat forced 100% width */
+.amenities > *{ width:auto !important; } /* defeat forced 100% width */
 
-/* Pill styling */
 .amenities .amenity{
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 10px;
-  border-radius: 6px;
-  background: #fff;
-  box-shadow: 0 0 8px rgba(0,115,230,.15);
+  display:flex; align-items:center; gap:6px;
+  padding:6px 10px; border-radius:6px; background:#fff;
+  box-shadow:0 0 8px rgba(0,115,230,.15);
 }
-.amenities .amenity i { flex: 0 0 auto; font-size: 16px; color: #0073e6; }
-.amenities p { margin: 0; }
+.amenities .amenity i{ flex:0 0 auto; font-size:16px; color:#0073e6; }
+.amenities p{ margin:0; }
 
-/* Wrapper breakpoints */
-@media (max-width: 1024px){
-  .amenities { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
-}
-@media (max-width: 640px){
-  .amenities { grid-template-columns: 1fr !important; }
-}
+@media (max-width:1020px){ .amenities{ grid-template-columns:repeat(2,minmax(0,1fr)) !important; } }
+@media (max-width:640px){  .amenities{ grid-template-columns:1fr !important; } }
 
 /* Fallback when there is NO .amenities wrapper */
 .amenity{
-  display:inline-flex; vertical-align:top;
-  width:calc(33.333% - 12px); margin:6px; box-sizing:border-box;
+  display:inline-flex;            /* force side-by-side */
+  vertical-align:top;
+  width:calc(33.333% - 12px);
+  margin:6px; box-sizing:border-box;
   padding:6px 10px; border-radius:6px; background:#fff;
   box-shadow:0 0 8px rgba(0,115,230,.15);
 }
 .amenity i{ color:#0073e6; font-size:16px; }
-@media (max-width:1020px){ .amenity{ width:calc(50% - 12px) !important; } }
-@media (max-width:640px){  .amenity{ width:100% !important; margin:6px 0; } }
+
+@media (max-width:1020px){
+  .amenity{ width:calc(50% - 12px) !important; display:inline-flex !important; }
+}
+@media (max-width:640px){
+  .amenity{ width:100% !important; margin:6px 0; display:flex !important; }
+}
 
 /* Remove bullets/padding if inside lists */
 ul .amenity, ol .amenity{ list-style:none; }
 ul.amenities, ol.amenities{ padding-left:0; margin-left:0; }
 
-/* Restore Bootstrap floats for room/amenities columns if any global rules broke them */
+/* Restore Bootstrap floats for room/amenities columns (in case any rule disabled them) */
 .b24-module .row>[class*="col-"],
 .b24-room .row>[class*="col-"],
 #roomview .row>[class*="col-"],
@@ -67,42 +61,40 @@ ul.amenities, ol.amenities{ padding-left:0; margin-left:0; }
    --------------------------------- */
 
 #b24scroller.b24-bookingstrip{
-  display: block;
-  box-sizing: border-box;
-  background: rgba(255,255,255,.82);
-  backdrop-filter: saturate(160%) blur(8px);
-  border-radius: 12px;
-  padding: 12px;
-  box-shadow: 0 10px 24px rgba(0,0,0,.08);
-  max-width: 1120px;
-  margin: 10px auto 32px;
-  position: relative;
-  z-index: 0;
-  overflow: visible;
-  direction: ltr;
-  text-align: left;
+  background:rgba(255,255,255,.82);
+  backdrop-filter:saturate(160%) blur(8px);
+  border-radius:12px;
+  padding:12px;
+  box-shadow:0 10px 24px rgba(0,0,0,.08);
+  max-width:1120px;                 /* centered container */
+  margin:10px auto 40px;            /* bottom gap so it never touches title */
+  position:relative;
+  z-index:0;                        /* never overlay following content */
+  direction:ltr; text-align:left;
+  overflow:visible;                  /* allow shadows to render */
 }
 
-/* Only the direct .row inside the strip becomes flex (do not touch global .row) */
+/* Only the direct .row inside the strip becomes flex (do NOT touch global .row) */
 #b24scroller.b24-bookingstrip > .row{
   display:flex !important;
   flex-wrap:wrap;
   gap:10px;
-  align-items:flex-end;         /* align bottoms for neat baseline */
-  justify-content:center;
+  align-items:flex-end;             /* align bottoms */
+  justify-content:center;           /* center line */
 }
 
-/* Hide spacer columns that push content to the right in some templates */
+/* Some templates have spacer cols that push content; hide them */
 #b24scroller .col-md-1,
 #b24scroller .col-lg-1{ display:none !important; }
 
-/* Field blocks — slimmer small fields so 5 items fit comfortably */
+/* Field blocks – slimmer small fields so 5 items fit */
 #b24scroller .b24-selector-checkin,
 #b24scroller .b24-selector-checkout{ flex:0 1 220px; min-width:180px; }
 #b24scroller .b24-selector-numnight,
 #b24scroller .b24-selector-numadult,
 #b24scroller .b24-selector-numchild{ flex:0 1 150px; min-width:140px; }
-/* Some templates hide Nights under small widths; force it to stay visible */
+
+/* Some themes hide Nights on small widths; keep it visible */
 #b24scroller .b24-selector-numnight{ display:block !important; }
 
 /* Labels */
@@ -126,7 +118,7 @@ ul.amenities, ol.amenities{ padding-left:0; margin-left:0; }
   background:#fff; color:#111827; box-shadow:none;
   transition:border-color .15s ease, box-shadow .15s ease;
 }
-/* Standalone selects (no addon) keep full rounding */
+/* Standalone selects (no addon) keep rounding */
 #b24scroller .b24-selector-numnight .form-control,
 #b24scroller .b24-selector-numadult .form-control,
 #b24scroller .b24-selector-numchild .form-control{ border-radius:8px; }
@@ -135,9 +127,9 @@ ul.amenities, ol.amenities{ padding-left:0; margin-left:0; }
   outline:none; border-color:#0a7cff; box-shadow:0 0 0 3px rgba(10,124,255,.15);
 }
 
-/* Medium screens (~tablet): wrap to two rows cleanly */
+/* Medium screens: clean 2-row layout & more bottom room to avoid overlap */
 @media (max-width:1020px){
-  #b24scroller.b24-bookingstrip{ margin:10px 16px 36px; } /* side gutters */
+  #b24scroller.b24-bookingstrip{ margin:10px 16px 56px; } /* ⬅ extra bottom margin */
   #b24scroller .b24-selector-checkin,
   #b24scroller .b24-selector-checkout{ flex:1 1 44%; min-width:260px; }
   #b24scroller .b24-selector-numnight,
@@ -145,9 +137,9 @@ ul.amenities, ol.amenities{ padding-left:0; margin-left:0; }
   #b24scroller .b24-selector-numchild{ flex:1 1 28%; min-width:180px; }
 }
 
-/* Phones */
+/* Phones: full width fields + side gutters */
 @media (max-width:766px){
-  #b24scroller.b24-bookingstrip{ margin:12px 12px 40px; }
+  #b24scroller.b24-bookingstrip{ margin:12px 12px 64px; } /* more space below */
   #b24scroller .b24-selector-checkin,
   #b24scroller .b24-selector-checkout,
   #b24scroller .b24-selector-numnight,
@@ -161,19 +153,12 @@ ul.amenities, ol.amenities{ padding-left:0; margin-left:0; }
 
 .b24-offer-select .text-right{ text-align:center !important; }
 
-.b24-offer-select .bookingpagecurrency{
-  font-size:13px; color:#111; margin-right:4px;
-}
+.b24-offer-select .bookingpagecurrency{ font-size:13px; color:#111; margin-right:4px; }
 .b24-offer-select .bookingpagedollars,
-.b24-offer-select .bookingpageamount{
-  font-size:24px; font-weight:800; color:#111827;
-}
-.b24-offer-select .personperday{
-  display:block; margin-top:4px; font-size:12px; color:#6b7280;
-}
+.b24-offer-select .bookingpageamount{ font-size:24px; font-weight:800; color:#111827; }
+.b24-offer-select .personperday{ display:block; margin-top:4px; font-size:12px; color:#6b7280; }
 
 .b24-roombuttondiv{ text-align:center; margin-top:8px; }
-
 .b24-roombuttondiv .button_at_booking{
   float:none !important; border:0 !important;
   display:inline-flex; align-items:center; justify-content:center;
@@ -193,7 +178,6 @@ ul.amenities, ol.amenities{ padding-left:0; margin-left:0; }
   transform:none;
   box-shadow:0 6px 14px rgba(10,124,255,.25);
 }
-
 @media (max-width:520px){
   .b24-roombuttondiv .button_at_booking{ width:100%; min-width:0; }
 }
