@@ -89,7 +89,7 @@ ol.amenities li {
   padding: 12px;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
   max-width: 1120px;
-  margin: 10px auto 64px; /* Increased bottom margin for overlap fix */
+  margin: 10px auto 24px; /* Increased bottom margin for overlap fix */
   position: relative !important;
   z-index: 0 !important;
   direction: ltr;
