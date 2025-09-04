@@ -1,53 +1,44 @@
 <style>
-  .amenities { 
-    direction: ltr; 
-    text-align: left;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 columns desktop */
-    gap: 10px;
-    font-family: sans-serif;
-    font-size: 14px;
-    color: #333;
-    margin: 20px 0;
-  }
+  .amenities{
+  display:grid !important;
+  grid-template-columns:repeat(3,minmax(0,1fr));
+  gap:10px;
+  direction:ltr;text-align:left;
+  font-family:sans-serif;font-size:14px;color:#333;margin:20px 0;
+}
+/* make sure children are not forced full width by other styles */
+.amenities > *{ width:auto !important; }
 
-  @media (max-width: 1024px) {
-    .amenities { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  }
-  @media (max-width: 640px) {
-    .amenities { grid-template-columns: 1fr; }
-  }
+/* keep your pill styling */
+.amenities .amenity{
+  display:flex;align-items:center;gap:6px;
+  padding:6px 10px;border-radius:6px;background:#fff;
+  box-shadow:0 0 8px rgba(0,115,230,.15);
+}
+.amenities .amenity i{ flex:0 0 auto;font-size:16px;color:#0073e6; }
+.amenities p{ margin:0; }
 
-  .amenity {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 10px;              /* less padding */
-    border-radius: 6px;
-    background: #fff;
-    box-shadow: 0 0 8px rgba(0, 115, 230, 0.15); /* subtle glow */
-    display:inline-flex;           /* sit side-by-side */
+@media (max-width:1024px){ .amenities{ grid-template-columns:repeat(2,minmax(0,1fr)); } }
+@media (max-width:640px){  .amenities{ grid-template-columns:1fr; } }
+
+/* 2) Fallback: when there's NO .amenities wrapper
+      (e.g., items are just .amenity inside a column or <ul>) */
+.amenity{
+  display:inline-flex;              /* line up side-by-side */
   vertical-align:top;
-  width:calc(33.333% - 12px);    /* 3 columns */
-  margin:6px;                    /* small gap between pills */
+  width:calc(33.333% - 12px);       /* 3 columns */
+  margin:6px;                       /* spacing between pills */
   box-sizing:border-box;
-  }
-
-ul .amenity{ list-style:none; padding-left:0; }
-@media (max-width:1024px){
-  .amenity{ width:calc(50% - 12px); }  /* 2 columns */
 }
-@media (max-width:640px){
-  .amenity{ width:100%; margin:6px 0; } /* 1 column */
-}
+/* don’t double-apply if inside .amenities grid */
+.amenities .amenity{ width:auto; margin:0; display:flex; }
 
-  .amenity i { 
-    flex: 0 0 auto; 
-    font-size: 16px; 
-    color: #0073e6;
-  }
+@media (max-width:1024px){ .amenity{ width:calc(50% - 12px); } }  /* 2 columns */
+@media (max-width:640px){  .amenity{ width:100%; margin:6px 0; } } /* 1 column */
 
-  .amenities p { margin: 0; }
+/* Remove default bullets/padding if items are inside <ul> or <ol> */
+ul .amenity, ol .amenity{ list-style:none; }
+ul.amenities, ol.amenities{ padding-left:0; margin-left:0; }
 
 /* ---- AMENITIES / ROOM LAYOUT: restore Bootstrap behavior ---- */
 /* If an old rule set width:auto/float:none, undo it for room modules */
