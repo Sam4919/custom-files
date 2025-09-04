@@ -36,6 +36,17 @@
 
   .amenities p { margin: 0; }
 
+/* ---- AMENITIES / ROOM LAYOUT: restore Bootstrap behavior ---- */
+/* If an old rule set width:auto/float:none, undo it for room modules */
+.b24-module .row > [class*="col-"],
+.b24-room .row > [class*="col-"],
+#roomview .row > [class*="col-"],
+#b24roomview .row > [class*="col-"]{
+  float:left !important;           /* re-enable Bootstrap floats */
+  /* do NOT set width here; let Bootstrap's percent widths apply */
+  padding-left:15px; padding-right:15px; /* typical gutter */
+}
+
 /* ===========================
    BOOKING STRIP – SAFE SCOPED
    =========================== */
