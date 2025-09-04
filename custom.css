@@ -5,27 +5,38 @@
 
 /* Preferred wrapper grid (3 / 2 / 1 columns) */
 .amenities{
-  display:grid !important;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:10px;
-  direction:ltr; text-align:left;
-  font-family:sans-serif; font-size:14px; color:#333;
-  margin:20px 0;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  direction: ltr;
+  text-align: left;
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #333;
+  margin: 20px 0;
 }
-.amenities > *{ width:auto !important; } /* defeat forced 100% width */
+.amenities > * { width: auto !important; } /* defeat forced 100% width */
 
 /* Pill styling */
 .amenities .amenity{
-  display:flex; align-items:center; gap:6px;
-  padding:6px 10px; border-radius:6px; background:#fff;
-  box-shadow:0 0 8px rgba(0,115,230,.15);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 0 8px rgba(0,115,230,.15);
 }
-.amenities .amenity i{ flex:0 0 auto; font-size:16px; color:#0073e6; }
-.amenities p{ margin:0; }
+.amenities .amenity i { flex: 0 0 auto; font-size: 16px; color: #0073e6; }
+.amenities p { margin: 0; }
 
 /* Wrapper breakpoints */
-@media (max-width:1020px){ .amenities{ grid-template-columns:repeat(2,minmax(0,1fr)) !important; } }
-@media (max-width:640px){  .amenities{ grid-template-columns:1fr !important; } }
+@media (max-width: 1024px){
+  .amenities { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+@media (max-width: 640px){
+  .amenities { grid-template-columns: 1fr !important; }
+}
 
 /* Fallback when there is NO .amenities wrapper */
 .amenity{
@@ -56,17 +67,20 @@ ul.amenities, ol.amenities{ padding-left:0; margin-left:0; }
    --------------------------------- */
 
 #b24scroller.b24-bookingstrip{
-  background:rgba(255,255,255,.82);
-  backdrop-filter:saturate(160%) blur(8px);
-  border-radius:12px;
-  padding:12px;
-  box-shadow:0 10px 24px rgba(0,0,0,.08);
-  max-width:1120px;            /* centered container */
-  margin:10px auto 32px;       /* extra bottom margin prevents overlap */
-  position:relative;
-  z-index:0;                   /* don’t overlay following content */
-  direction:ltr; text-align:left;
-  overflow:visible;
+  display: block;
+  box-sizing: border-box;
+  background: rgba(255,255,255,.82);
+  backdrop-filter: saturate(160%) blur(8px);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 10px 24px rgba(0,0,0,.08);
+  max-width: 1120px;
+  margin: 10px auto 32px;
+  position: relative;
+  z-index: 0;
+  overflow: visible;
+  direction: ltr;
+  text-align: left;
 }
 
 /* Only the direct .row inside the strip becomes flex (do not touch global .row) */
