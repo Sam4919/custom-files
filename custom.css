@@ -26,7 +26,20 @@
     border-radius: 6px;
     background: #fff;
     box-shadow: 0 0 8px rgba(0, 115, 230, 0.15); /* subtle glow */
+    display:inline-flex;           /* sit side-by-side */
+  vertical-align:top;
+  width:calc(33.333% - 12px);    /* 3 columns */
+  margin:6px;                    /* small gap between pills */
+  box-sizing:border-box;
   }
+
+ul .amenity{ list-style:none; padding-left:0; }
+@media (max-width:1024px){
+  .amenity{ width:calc(50% - 12px); }  /* 2 columns */
+}
+@media (max-width:640px){
+  .amenity{ width:100%; margin:6px 0; } /* 1 column */
+}
 
   .amenity i { 
     flex: 0 0 auto; 
@@ -47,6 +60,7 @@
   padding-left:15px; padding-right:15px; /* typical gutter */
 }
 
+
 /* ===========================
    BOOKING STRIP – SAFE SCOPED
    =========================== */
@@ -58,7 +72,8 @@
   border-radius: 12px;
   padding: 12px;
   box-shadow: 0 10px 24px rgba(0,0,0,.08);
-  margin: 10px 0 18px;
+  max-width: 1120px;
+  margin: 10px auto 18px;
   position: relative;
   z-index: 1;            /* prevent odd overlaps */
   direction: ltr;
@@ -67,11 +82,16 @@
 
 /* Use flex only INSIDE the booking strip (do not touch global .row) */
 #b24scroller.b24-bookingstrip > .row{
-  display: flex !important;
-  flex-wrap: wrap;
-  gap: 10px;
-  align-items: flex-end;
+  display:flex !important;
+  flex-wrap:wrap;
+  gap:10px;
+  align-items:flex-end;
+  justify-content:center;
 }
+
+/* Hide the empty spacer cols that push content right */
+#b24scroller .col-md-1,
+#b24scroller .col-lg-1{ display:none !important; }
 
 /* Only target the booking fields, not every .row child */
 #b24scroller .b24-selector-checkin,
@@ -79,11 +99,10 @@
 #b24scroller .b24-selector-numnight,
 #b24scroller .b24-selector-numadult,
 #b24scroller .b24-selector-numchild{
-  float: none !important;          /* neutralize Bootstrap float */
-  width: auto !important;
-  padding: 0 !important;
-  flex: 1 1 180px;                 /* responsive cells */
-  min-width: 180px;
+  float:none !important;
+  padding:0 !important;
+  flex:0 1 220px;                  /* nice fixed min width, responsive */
+  min-width:200px;
 }
 
 /* Labels */
