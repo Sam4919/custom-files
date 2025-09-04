@@ -1,39 +1,16 @@
 <style>
-  /* --------------------------
-   AMENITIES – robust layout
-   -------------------------- */
+/* ============================
+   AMENITIES – floated layout
+============================= */
 
-/* Preferred wrapper grid (3 / 2 / 1 columns) */
-.amenities{
-  display:grid !important;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:10px;
-  direction:ltr; text-align:left;
-  font-family:sans-serif; font-size:14px; color:#333;
-  margin:20px 0;
-}
-.amenities > *{ width:auto !important; } /* defeat forced 100% width */
-
-.amenities .amenity{
-  display:flex; align-items:center; gap:6px;
-  padding:6px 10px; border-radius:6px; background:#fff;
-  box-shadow:0 0 8px rgba(0,115,230,.15);
-}
-.amenities .amenity i{ flex:0 0 auto; font-size:16px; color:#0073e6; }
-.amenities p{ margin:0; }
-
-@media (max-width:1020px){ .amenities{ grid-template-columns:repeat(2,minmax(0,1fr)) !important; } }
-@media (max-width:640px){  .amenities{ grid-template-columns:1fr !important; } }
-
-/* Fallback when there is NO .amenities wrapper */
-.amenity{
-  display: inline-flex !important;
-  align-items: center;
-  vertical-align: top;
-  width: calc(33.333% - 12px);
-  margin: 6px;
+.amenity {
+  float: left;
+  width: 31.5%; /* 3 items per row with 2% margin between */
+  margin: 1% 1%;
   box-sizing: border-box;
-  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
   border-radius: 6px;
   background: #fff;
   font-family: sans-serif;
@@ -41,166 +18,236 @@
   color: #333;
   box-shadow: 0 0 8px rgba(0, 115, 230, 0.15);
 }
-.amenity i{ color: #0073e6;
-  font-size: 16px;
-  margin-right: 8px; }
 
-@media (max-width: 1024px) {
+.amenity i {
+  margin-right: 8px;
+  color: #0073e6;
+  font-size: 16px;
+}
+
+@media (max-width: 1020px) {
   .amenity {
-    width: calc(50% - 12px) !important;
+    width: 48%; /* 2 columns */
+    margin: 1% 1%;
   }
 }
 
 @media (max-width: 640px) {
   .amenity {
-    width: 100% !important;
-    margin: 6px 0 !important;
+    width: 100%; /* 1 column */
+    margin: 6px 0;
   }
 }
 
-/* Remove bullets/padding if inside lists */
-ul .amenity, ol .amenity { list-style: none; }
-ul.amenities, ol.amenities{ padding-left:0; margin-left:0; }
-
-/* Restore Bootstrap floats for room/amenities columns (in case any rule disabled them) */
-.b24-module .row>[class*="col-"],
-.b24-room .row>[class*="col-"],
-#roomview .row>[class*="col-"],
-#b24roomview .row>[class*="col-"]{
-  float:left !important;
-  padding-left:15px; padding-right:15px;
+/* Add this div after the amenities section to clear floats */
+.amenity-wrapper::after {
+  content: "";
+  display: block;
+  clear: both;
 }
 
-@media (max-width:1020px){
-  #roomview, #b24roomview, .b24-module {
-    padding-top: 80px !important;
-  }
-}
+/* =============================
+   BOOKING STRIP – responsive
+============================= */
 
-/* ---------------------------------
-   BOOKING STRIP – refined & scoped
-   --------------------------------- */
-
-#b24scroller.b24-bookingstrip{
-  background:rgba(255,255,255,.82);
-  backdrop-filter:saturate(160%) blur(8px);
-  border-radius:12px;
-  padding:12px;
-  box-shadow:0 10px 24px rgba(0,0,0,.08);
-  max-width:1120px;                 /* centered container */
-  margin:10px auto 40px;            /* bottom gap so it never touches title */
+#b24scroller.b24-bookingstrip {
+  background: rgba(255, 255, 255, 0.82);
+  backdrop-filter: saturate(160%) blur(8px);
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  max-width: 1120px;
+  margin: 10px auto 64px; /* Increased bottom margin for overlap fix */
   position: relative !important;
-  z-index: 0 !important;                        /* never overlay following content */
-  direction:ltr; text-align:left;
-  overflow:visible;                  /* allow shadows to render */
+  z-index: 0 !important;
+  direction: ltr;
+  text-align: left;
+  overflow: visible;
 }
 
-/* Only the direct .row inside the strip becomes flex (do NOT touch global .row) */
-#b24scroller.b24-bookingstrip > .row{
-  display:flex !important;
-  flex-wrap:wrap;
-  gap:10px;
-  align-items:flex-end;             /* align bottoms */
-  justify-content:center;           /* center line */
+#b24scroller.b24-bookingstrip > .row {
+  display: flex !important;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: flex-end;
+  justify-content: center;
 }
 
-/* Some templates have spacer cols that push content; hide them */
 #b24scroller .col-md-1,
-#b24scroller .col-lg-1{ display:none !important; }
+#b24scroller .col-lg-1 {
+  display: none !important;
+}
 
-/* Field blocks – slimmer small fields so 5 items fit */
 #b24scroller .b24-selector-checkin,
-#b24scroller .b24-selector-checkout{ flex:0 1 220px; min-width:180px; }
+#b24scroller .b24-selector-checkout {
+  flex: 0 1 220px;
+  min-width: 180px;
+}
+
 #b24scroller .b24-selector-numnight,
 #b24scroller .b24-selector-numadult,
-#b24scroller .b24-selector-numchild{ flex:0 1 150px; min-width:140px; }
-
-/* Some themes hide Nights on small widths; keep it visible */
-#b24scroller .b24-selector-numnight{ display:block !important; }
-
-/* Labels */
-#b24scroller .control-label{
-  display:block; margin:0 0 4px;
-  font-size:12px; font-weight:600; color:#4b5563;
+#b24scroller .b24-selector-numchild {
+  flex: 0 1 150px;
+  min-width: 140px;
 }
 
-/* Calendar + input group */
-#b24scroller .input-group.date{ display:flex; align-items:center; width:100%; }
-#b24scroller .input-group-addon{
-  background:#fff; border:1px solid #dfe3ea; border-right:none;
-  border-radius:8px 0 0 8px; padding:0 10px; color:#0660cc;
+#b24scroller .b24-selector-numnight {
+  display: block !important;
 }
-#b24scroller .glyphicon{ top:0; }
 
-/* Inputs / selects */
-#b24scroller .form-control{
-  height:40px; width:100%; max-width:100%;
-  border:1px solid #dfe3ea; border-radius:0 8px 8px 0; padding:0 12px;
-  background:#fff; color:#111827; box-shadow:none;
-  transition:border-color .15s ease, box-shadow .15s ease;
+#b24scroller .control-label {
+  display: block;
+  margin: 0 0 4px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #4b5563;
 }
-/* Standalone selects (no addon) keep rounding */
+
+#b24scroller .input-group.date {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+#b24scroller .input-group-addon {
+  background: #fff;
+  border: 1px solid #dfe3ea;
+  border-right: none;
+  border-radius: 8px 0 0 8px;
+  padding: 0 10px;
+  color: #0660cc;
+}
+
+#b24scroller .glyphicon {
+  top: 0;
+}
+
+#b24scroller .form-control {
+  height: 40px;
+  width: 100%;
+  max-width: 100%;
+  border: 1px solid #dfe3ea;
+  border-radius: 0 8px 8px 0;
+  padding: 0 12px;
+  background: #fff;
+  color: #111827;
+  box-shadow: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
 #b24scroller .b24-selector-numnight .form-control,
 #b24scroller .b24-selector-numadult .form-control,
-#b24scroller .b24-selector-numchild .form-control{ border-radius:8px; }
-
-#b24scroller .form-control:focus{
-  outline:none; border-color:#0a7cff; box-shadow:0 0 0 3px rgba(10,124,255,.15);
+#b24scroller .b24-selector-numchild .form-control {
+  border-radius: 8px;
 }
 
-/* Medium screens: clean 2-row layout & more bottom room to avoid overlap */
-@media (max-width:1020px){
-  #b24scroller.b24-bookingstrip{ margin:10px 16px 56px; } /* ⬅ extra bottom margin */
+#b24scroller .form-control:focus {
+  outline: none;
+  border-color: #0a7cff;
+  box-shadow: 0 0 0 3px rgba(10, 124, 255, 0.15);
+}
+
+@media (max-width: 1020px) {
+  #b24scroller.b24-bookingstrip {
+    margin: 10px 16px 72px !important;
+  }
+
   #b24scroller .b24-selector-checkin,
-  #b24scroller .b24-selector-checkout{ flex:1 1 44%; min-width:260px; }
+  #b24scroller .b24-selector-checkout {
+    flex: 1 1 44%;
+    min-width: 260px;
+  }
+
   #b24scroller .b24-selector-numnight,
   #b24scroller .b24-selector-numadult,
-  #b24scroller .b24-selector-numchild{ flex:1 1 28%; min-width:180px; }
+  #b24scroller .b24-selector-numchild {
+    flex: 1 1 28%;
+    min-width: 180px;
+  }
 }
 
-/* Phones: full width fields + side gutters */
-@media (max-width:766px){
-  #b24scroller.b24-bookingstrip{ margin:12px 12px 64px; } /* more space below */
+@media (max-width: 766px) {
+  #b24scroller.b24-bookingstrip {
+    margin: 12px 12px 80px !important;
+  }
+
   #b24scroller .b24-selector-checkin,
   #b24scroller .b24-selector-checkout,
   #b24scroller .b24-selector-numnight,
   #b24scroller .b24-selector-numadult,
-  #b24scroller .b24-selector-numchild{ flex:1 1 100%; min-width:0; }
+  #b24scroller .b24-selector-numchild {
+    flex: 1 1 100%;
+    min-width: 0;
+  }
 }
 
-/* ------------------------------
-   PRICE + BOOK BUTTON styling
-   ------------------------------ */
+/* ============================
+   BOOK BUTTON + PRICE STYLING
+============================== */
 
-.b24-offer-select .text-right{ text-align:center !important; }
+.b24-offer-select .text-right {
+  text-align: center !important;
+}
 
-.b24-offer-select .bookingpagecurrency{ font-size:13px; color:#111; margin-right:4px; }
+.b24-offer-select .bookingpagecurrency {
+  font-size: 13px;
+  color: #111;
+  margin-right: 4px;
+}
+
 .b24-offer-select .bookingpagedollars,
-.b24-offer-select .bookingpageamount{ font-size:24px; font-weight:800; color:#111827; }
-.b24-offer-select .personperday{ display:block; margin-top:4px; font-size:12px; color:#6b7280; }
-
-.b24-roombuttondiv{ text-align:center; margin-top:8px; }
-.b24-roombuttondiv .button_at_booking{
-  float:none !important; border:0 !important;
-  display:inline-flex; align-items:center; justify-content:center;
-  min-width:140px; height:44px; padding:0 18px; line-height:1;
-  border-radius:10px; cursor:pointer;
-  background:linear-gradient(180deg,#0a7cff,#0660cc) !important;
-  color:#fff !important; font-weight:700;
-  box-shadow:0 8px 18px rgba(10,124,255,.30);
-  transition:transform .18s ease, box-shadow .18s ease, filter .18s ease;
-}
-.b24-roombuttondiv .button_at_booking:hover{
-  transform:translateY(-1px);
-  box-shadow:0 12px 26px rgba(10,124,255,.35);
-  filter:brightness(1.03);
-}
-.b24-roombuttondiv .button_at_booking:active{
-  transform:none;
-  box-shadow:0 6px 14px rgba(10,124,255,.25);
-}
-@media (max-width:520px){
-  .b24-roombuttondiv .button_at_booking{ width:100%; min-width:0; }
+.b24-offer-select .bookingpageamount {
+  font-size: 24px;
+  font-weight: 800;
+  color: #111827;
 }
 
+.b24-offer-select .personperday {
+  display: block;
+  margin-top: 4px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.b24-roombuttondiv {
+  text-align: center;
+  margin-top: 8px;
+}
+
+.b24-roombuttondiv .button_at_booking {
+  float: none !important;
+  border: 0 !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 140px;
+  height: 44px;
+  padding: 0 18px;
+  line-height: 1;
+  border-radius: 10px;
+  cursor: pointer;
+  background: linear-gradient(180deg, #0a7cff, #0660cc) !important;
+  color: #fff !important;
+  font-weight: 700;
+  box-shadow: 0 8px 18px rgba(10, 124, 255, 0.3);
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+.b24-roombuttondiv .button_at_booking:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(10, 124, 255, 0.35);
+  filter: brightness(1.03);
+}
+
+.b24-roombuttondiv .button_at_booking:active {
+  transform: none;
+  box-shadow: 0 6px 14px rgba(10, 124, 255, 0.25);
+}
+
+@media (max-width: 520px) {
+  .b24-roombuttondiv .button_at_booking {
+    width: 100%;
+    min-width: 0;
+  }
+}
 </style>
