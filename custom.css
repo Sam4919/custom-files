@@ -20,10 +20,14 @@
 #b24scroller > .row {
   display: flex !important;
   flex-wrap: wrap;
-  gap: 10px;
   align-items: flex-end;
   justify-content: center;
 }
+
+#b24scroller > .form-group {
+  margin-bottom: 5px;
+}
+
 
 #b24scroller .col-md-1,
 #b24scroller .col-lg-1 {
