@@ -103,9 +103,9 @@
   .panel-heading.b24-roompanel-heading.colorbookingstrip.bb {
     padding-top: 120px !important;
   }
-  #b24scroller {
+  /*#b24scroller {
     margin: 10px 16px 72px !important;
-  }
+  }*/
   #b24scroller .b24-selector-checkin,
   #b24scroller .b24-selector-checkout {
     flex: 1 1 44%;
