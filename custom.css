@@ -1,103 +1,23 @@
-<style>
-/* ============================
-   AMENITIES – floated layout
-============================= */
-
-.amenity {
-  float: left !important;
-  width: 31.33%; /* 3 per row with spacing */
-  margin: 1%;
-  box-sizing: border-box;
-  display: flex;
-  align-items: center;
-  padding: 8px 12px;
-  border-radius: 6px;
-  background: #fff;
-  font-family: sans-serif;
-  font-size: 14px;
-  color: #333;
-  box-shadow: 0 0 8px rgba(0, 115, 230, 0.15);
-}
-
-.amenities {
-  display: block !important;
-  overflow: hidden; /* contain floated items */
-  margin: 20px 0;
-  padding: 0;
-}
-
-.amenity i {
-  margin-right: 8px;
-  color: #0073e6;
-  font-size: 16px;
-}
-
-ul.amenities, ol.amenities {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-ul.amenities li,
-ol.amenities li {
-  list-style: none !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-.amenities::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
-@media (max-width: 1020px) {
-  .amenity {
-    width: 48%;
-    margin: 1%;
-  }
-}
-
-/* Breakpoint: 1 column below 640px */
-@media (max-width: 640px) {
-  .amenity {
-    width: 100%;
-    margin: 6px 0;
-  }
-}
-
-/* Add this div after the amenities section to clear floats */
-.amenity-wrapper::after {
-  content: "";
-  display: block;
-  clear: both;
-}
-
-/* =============================
-   BOOKING STRIP – responsive
-============================= */
+/* =========================================
+   🟦 1. BOOKING STRIP (RESPONSIVE & CLEAN)
+========================================= */
 
 #b24scroller {
   position: relative !important;
   z-index: 1 !important;
-}
-
-#b24scroller.b24-bookingstrip {
   background: rgba(255, 255, 255, 0.82);
   backdrop-filter: saturate(160%) blur(8px);
   border-radius: 12px;
   padding: 12px;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
   max-width: 1120px;
-  margin: 10px auto 24px; /* Increased bottom margin for overlap fix */
-  position: relative !important;
-  z-index: 0 !important;
+  margin: 10px auto 64px;
+  overflow: visible;
   direction: ltr;
   text-align: left;
-  overflow: visible;
 }
 
-#b24scroller.b24-bookingstrip > .row {
+#b24scroller > .row {
   display: flex !important;
   flex-wrap: wrap;
   gap: 10px;
@@ -180,16 +100,17 @@ ol.amenities li {
 }
 
 @media (max-width: 1020px) {
-  #b24scroller.b24-bookingstrip {
+  .panel-heading.b24-roompanel-heading.colorbookingstrip.bb {
+    padding-top: 120px !important;
+  }
+  #b24scroller {
     margin: 10px 16px 72px !important;
   }
-
   #b24scroller .b24-selector-checkin,
   #b24scroller .b24-selector-checkout {
     flex: 1 1 44%;
     min-width: 260px;
   }
-
   #b24scroller .b24-selector-numnight,
   #b24scroller .b24-selector-numadult,
   #b24scroller .b24-selector-numchild {
@@ -199,10 +120,9 @@ ol.amenities li {
 }
 
 @media (max-width: 766px) {
-  #b24scroller.b24-bookingstrip {
+  #b24scroller {
     margin: 12px 12px 80px !important;
   }
-
   #b24scroller .b24-selector-checkin,
   #b24scroller .b24-selector-checkout,
   #b24scroller .b24-selector-numnight,
@@ -213,9 +133,76 @@ ol.amenities li {
   }
 }
 
-/* ============================
-   BOOK BUTTON + PRICE STYLING
-============================== */
+
+/* ========================================
+   💠 2. AMENITIES (FLOATING 3-2-1 COLUMN)
+======================================== */
+
+.amenities {
+  display: block !important;
+  overflow: hidden;
+  margin: 20px 0;
+  padding: 0;
+}
+
+.amenity {
+  float: left !important;
+  width: 31.33%;
+  margin: 1%;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 6px;
+  background: #fff;
+  font-family: sans-serif;
+  font-size: 14px;
+  color: #333;
+  box-shadow: 0 0 8px rgba(0, 115, 230, 0.15);
+}
+
+.amenity i {
+  margin-right: 8px;
+  color: #0073e6;
+  font-size: 16px;
+}
+
+ul.amenities, ol.amenities {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul.amenities li,
+ol.amenities li {
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+.amenities::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+@media (max-width: 1020px) {
+  .amenity {
+    width: 48%;
+    margin: 1%;
+  }
+}
+
+@media (max-width: 640px) {
+  .amenity {
+    width: 100%;
+    margin: 6px 0;
+  }
+}
+
+
+/* ========================================
+   📦 3. BOOK BUTTON + PRICE STYLING
+======================================== */
 
 .b24-offer-select .text-right {
   text-align: center !important;
@@ -282,9 +269,3 @@ ol.amenities li {
     min-width: 0;
   }
 }
-@media (max-width: 1020px) {
-  .panel-heading.b24-roompanel-heading.colorbookingstrip.bb {
-    padding-top: 120px !important;
-  }
-}
-</style>
