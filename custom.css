@@ -1,61 +1,31 @@
-/* ===============================
-   LANG & CURRENCY DROPDOWN STYLES
-=============================== */
+/* ============================
+   LANGUAGE & CURRENCY DROPDOWN
+============================ */
 
 .b24languagedropdown .dropdown-toggle,
 .b24currencydropdown .dropdown-toggle {
-  background: rgba(255, 255, 255, 0.95) !important;
+  background: rgba(255, 255, 255, 0.95);
   color: #111 !important;
   border-radius: 8px;
-  padding: 6px 12px !important;
+  padding: 6px 12px;
   font-size: 14px;
   font-weight: 600;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
   border: 1px solid #ccc;
-  position: relative;
   z-index: 10;
-  min-width: 110px;
-  line-height: 1.2;
-  text-align: left;
+  position: relative;
 }
 
-/* Ensure consistent style on hover/focus/active */
-.b24languagedropdown .dropdown-toggle:hover,
-.b24languagedropdown .dropdown-toggle:focus,
-.b24languagedropdown .dropdown-toggle:active,
-.b24currencydropdown .dropdown-toggle:hover,
-.b24currencydropdown .dropdown-toggle:focus,
-.b24currencydropdown .dropdown-toggle:active {
-  background: #f1f1f1 !important;
-  color: #111 !important;
-  box-shadow: none;
-  border-color: #aaa;
-  outline: none;
-}
-
-/* Dropdown menu */
+/* Make sure dropdown menu is not cut off */
 .b24languagedropdown .dropdown-menu,
 .b24currencydropdown .dropdown-menu {
-  background: #fff;
-  border: 1px solid #ccc;
-  border-radius: 6px;
   z-index: 9999;
-  font-size: 14px;
 }
 
-/* Ensure menu items are clear and spaced */
-.b24languagedropdown .dropdown-menu li a,
-.b24currencydropdown .dropdown-menu li a {
-  padding: 8px 12px;
-  color: #111;
-  font-weight: 500;
-  display: block;
-  text-decoration: none;
-}
-
-.b24languagedropdown .dropdown-menu li a:hover,
-.b24currencydropdown .dropdown-menu li a:hover {
-  background: #f0f0f0;
+/* Optional: fix font size and spacing */
+.b24languagedropdown,
+.b24currencydropdown {
+  margin: 8px;
 }
 
 
