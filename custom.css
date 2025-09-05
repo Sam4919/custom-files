@@ -1,3 +1,34 @@
+/* ============================
+   LANGUAGE & CURRENCY DROPDOWN
+============================ */
+
+.b24languagedropdown .dropdown-toggle,
+.b24currencydropdown .dropdown-toggle {
+  background: rgba(255, 255, 255, 0.95);
+  color: #111 !important;
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 14px;
+  font-weight: 600;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  border: 1px solid #ccc;
+  z-index: 10;
+  position: relative;
+}
+
+/* Make sure dropdown menu is not cut off */
+.b24languagedropdown .dropdown-menu,
+.b24currencydropdown .dropdown-menu {
+  z-index: 9999;
+}
+
+/* Optional: fix font size and spacing */
+.b24languagedropdown,
+.b24currencydropdown {
+  margin: 8px;
+}
+
+
 /* =========================================
    🟦 1. BOOKING STRIP (RESPONSIVE & CLEAN)
 ========================================= */
@@ -276,6 +307,8 @@ ol.amenities li {
     min-width: 0;
   }
 }
+
+
 /* === BASE TOGGLE BUTTON STYLE === */
 .fakelink {
   display: inline-block;
