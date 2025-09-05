@@ -167,6 +167,8 @@
 @media (max-width: 766px) {
   #b24scroller {
     margin: 12px 12px 80px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
   }
   #b24scroller .b24-selector-checkin,
   #b24scroller .b24-selector-checkout,
@@ -175,6 +177,18 @@
   #b24scroller .b24-selector-numchild {
     flex: 1 1 100%;
     min-width: 0;
+  }
+   /* Normalize input fields (especially calendar fields) */
+  #b24scroller .form-control,
+  #b24scroller .input-group,
+  #b24scroller .input-group.date {
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+/* Fix for field rows spacing if needed */
+  #b24scroller .row > div[class*="col-"] {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 }
 
