@@ -121,6 +121,9 @@
     flex: 1 1 28%;
     min-width: 180px;
   }
+   #b24scroller .form-group {
+    margin-bottom: 5px !important;
+  }
 }
 
 @media (max-width: 766px) {
@@ -156,7 +159,7 @@
   box-sizing: border-box;
   display: flex;
   align-items: center;
-  padding: 8px 12px;
+  padding: 7px 10px;
   border-radius: 6px;
   background: #fff;
   font-family: sans-serif;
@@ -168,7 +171,7 @@
 .amenity i {
   margin-right: 8px;
   color: #0073e6;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 ul.amenities, ol.amenities {
