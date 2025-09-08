@@ -340,9 +340,9 @@ ol.amenities li {
 }
 
 /* Hover: stop glow and change color */
-#ajaxroomoffer1-591041 .fakelink:hover { animation:none; background:#0660cc; box-shadow:none; }
+#ajaxroomoffer1-591041 .fakelink:hover { animation: none; background-color: #0660cc; box-shadow: none; }
 /* When calendar is visible: remove glow via parent class (JS adds/remove class) */
-#ajaxroomoffer1-591041.b24calendar-active .fakelink { animation:none !important; background:#0660cc !important; box-shadow:none !important; color:#fff !important; }
+#ajaxroomoffer1-591041.b24calendar-active .fakelink { animation: none !important; background-color: #0660cc !important; box-shadow: none !important; color: #fff !important; }
 
 /* Glowing animation */
 @keyframes glowPulse {
