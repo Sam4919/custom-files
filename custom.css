@@ -329,37 +329,20 @@ ol.amenities li {
 
 
 /* === BASE TOGGLE BUTTON STYLE === */
-.fakelink {
-  display: inline-block;
-  padding: 8px 16px;
-  margin-top: 10px;
-  font-size: 14px;
-  font-weight: 600;
-  color: #fff !important;
-  background-color: #0a7cff;
-  border-radius: 8px;
-  text-align: center;
-  text-decoration: none !important;
-  cursor: pointer;
-  box-shadow: 0 0 12px rgba(10, 124, 255, 0.7);
-  animation: glowPulse 1.5s ease-in-out infinite;
-  transition: background-color 0.2s, box-shadow 0.2s, transform 0.2s;
+#ajaxroomoffer1-591041 .fakelink {
+  display:inline-block; padding:8px 16px; margin-top:10px;
+  font-size:14px; font-weight:600; color:#fff !important;
+  background-color:#0a7cff; border-radius:8px; text-align:center;
+  text-decoration:none !important; cursor:pointer;
+  box-shadow:0 0 12px rgba(10,124,255,.7);
+  animation:glowPulse 1.5s ease-in-out infinite;
+  transition:background-color .2s, box-shadow .2s, transform .2s;
 }
 
 /* Hover: stop glow and change color */
-.fakelink:hover {
-  animation: none;
-  background-color: #0660cc;
-  box-shadow: none;
-}
-
+#ajaxroomoffer1-591041 .fakelink:hover { animation:none; background:#0660cc; box-shadow:none; }
 /* When calendar is visible: remove glow via parent class (JS adds/remove class) */
-.b24calendar-active .fakelink {
-  animation: none !important;
-  background-color: #0660cc !important;
-  box-shadow: none !important;
-  color: #fff !important;
-}
+#ajaxroomoffer1-591041.b24calendar-active .fakelink { animation:none !important; background:#0660cc !important; box-shadow:none !important; color:#fff !important; }
 
 /* Glowing animation */
 @keyframes glowPulse {
