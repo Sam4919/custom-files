@@ -351,40 +351,24 @@ ol.amenities li {
   100% { box-shadow: 0 0 10px rgba(10,124,255, 0.4); }
 }
 
-/* Shared card look */
-.b24-rules-faq table {
-  width: 100%;
+/* ========================================
+   📦 4. Optional enhancements for House Rules + FAQ
+======================================== */
+.propheader.ckedit table {
   border-collapse: collapse;
-  font-size: 13px;
-  margin: 0;
+  width: 100%;
 }
-.b24-rules-faq td {
+.propheader.ckedit td {
   border: 1px solid #ccc;
   padding: 6px;
-  vertical-align: top;
-}
-.b24-rules-faq strong {
-  color: #0a7cff;
-  font-weight: 600;
-}
-.b24-rules-faq .danger {
-  color: #e74c3c;
-}
-
-/* FAQ toggle using <details> */
-.b24-rules-faq details {
   font-size: 13px;
+  color: #444;
 }
-.b24-rules-faq summary {
+.propheader.ckedit summary {
   cursor: pointer;
   font-weight: 600;
   color: #2c3e50;
-  font-size: 13px;
-  margin: 0;
-  list-style: none;
 }
-.b24-rules-faq details div {
-  margin-top: 4px;
-  font-size: 12px;
-  color: #444;
+.propheader.ckedit details[open] summary {
+  color: #0a7cff;
 }
