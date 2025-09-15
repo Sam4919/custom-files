@@ -1,3 +1,19 @@
+document.addEventListener('DOMContentLoaded', function() {
+  const scope = document.getElementById('ajaxroomoffer1-591041');
+  if (!scope) return;
+
+  const openLink = scope.querySelector('.fakelink[onclick^="showid"]');
+  const closeLink = scope.querySelector('.fakelink[onclick^="hideid"]');
+  const calendarContainer = scope.querySelector('.panel-body.b24panel');
+
+  if (openLink && calendarContainer) {
+    openLink.addEventListener('click', () => scope.classList.add('b24calendar-active'));
+  }
+  if (closeLink && calendarContainer) {
+    closeLink.addEventListener('click', () => scope.classList.remove('b24calendar-active'));
+  }
+});
+
 
 document.addEventListener("DOMContentLoaded", function () {
   // Create container
