@@ -15,6 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 
+
 document.addEventListener("DOMContentLoaded", function () {
   const target = document.getElementById("collapse58283030");
   if (!target) return;
@@ -102,6 +103,3 @@ document.addEventListener("DOMContentLoaded", function () {
     btnRules.innerHTML = "▼ 🏠 House Rules";
   });
 });
-
-});
-
