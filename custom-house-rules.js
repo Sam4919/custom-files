@@ -20,14 +20,20 @@ document.addEventListener("DOMContentLoaded", function () {
   if (!target) return;
 
   const container = document.createElement("div");
+
   container.innerHTML = `
-    <div style='margin-top:10px;'>
-      <div class="fakelink" onclick="document.getElementById('collapseHouseRules').style.display='block';">🏠 House Rules</div>
-      <div class="fakelink" onclick="document.getElementById('collapseFAQs').style.display='block';">❓ FAQs</div>
-    </div>
+    <table style='width:100%; border-collapse:collapse; margin:10px 0; font-family:sans-serif; font-size:13px;'>
+      <tr>
+        <td style='width:50%; text-align:center; background:#e3e3e3; border:1px solid #aaa; cursor:pointer; padding:8px; font-weight:bold;' id='btnRules'>
+          ▼ 🏠 House Rules
+        </td>
+        <td style='width:50%; text-align:center; background:#e3e3e3; border:1px solid #aaa; cursor:pointer; padding:8px; font-weight:bold;' id='btnFaqs'>
+          ▼ ❓ FAQs
+        </td>
+      </tr>
+    </table>
 
     <div id="collapseHouseRules" style="display:none; margin-top:6px;">
-      <div class="fakelink" onclick="document.getElementById('collapseHouseRules').style.display='none';">✖ Close House Rules</div>
       <div class="propheader ckedit" style="font-family:sans-serif;font-size:13px;">
         <table style="width:100%;border-collapse:collapse;">
           <tr><td style="border:1px solid #ccc;padding:6px;">🕓 <b>Check-in</b><br>16:00–18:00. Guests must show photo ID & credit card.</td></tr>
@@ -42,7 +48,6 @@ document.addEventListener("DOMContentLoaded", function () {
     </div>
 
     <div id="collapseFAQs" style="display:none; margin-top:6px;">
-      <div class="fakelink" onclick="document.getElementById('collapseFAQs').style.display='none';">✖ Close FAQs</div>
       <div class="propheader ckedit" style="font-family:sans-serif;font-size:13px;">
         <table style="width:100%;border-collapse:collapse;">
           <tr>
@@ -75,5 +80,28 @@ document.addEventListener("DOMContentLoaded", function () {
   `;
 
   target.querySelector(".propheader.ckedit").appendChild(container);
+
+  const btnRules = document.getElementById("btnRules");
+  const btnFaqs = document.getElementById("btnFaqs");
+  const sectionRules = document.getElementById("collapseHouseRules");
+  const sectionFaqs = document.getElementById("collapseFAQs");
+
+  btnRules.addEventListener("click", () => {
+    const isVisible = sectionRules.style.display === "block";
+    sectionRules.style.display = isVisible ? "none" : "block";
+    sectionFaqs.style.display = "none";
+    btnRules.innerHTML = isVisible ? "▼ 🏠 House Rules" : "▲ Close House Rules";
+    btnFaqs.innerHTML = "▼ ❓ FAQs";
+  });
+
+  btnFaqs.addEventListener("click", () => {
+    const isVisible = sectionFaqs.style.display === "block";
+    sectionFaqs.style.display = isVisible ? "none" : "block";
+    sectionRules.style.display = "none";
+    btnFaqs.innerHTML = isVisible ? "▼ ❓ FAQs" : "▲ Close FAQs";
+    btnRules.innerHTML = "▼ 🏠 House Rules";
+  });
+});
+
 });
 
