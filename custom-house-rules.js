@@ -94,25 +94,25 @@ setTimeout(function () {
       <div class="propheader ckedit" style="font-family:sans-serif;font-size:13px;">
         <table style="width:100%;border-collapse:collapse;">
           <tr><td style="border:1px solid #ddd;padding:10px;">
-            <details class="faq-toggle"><summary>👥 How many guests?</summary><div>Up to 12 guests depending on room type.</div></details>
+            <details class="faq-toggle"><summary><b>👥 How many guests?</b></summary><div>Up to 12 guests depending on room type.</div></details>
           </td></tr>
           <tr><td style="border:1px solid #ddd;padding:10px;">
-            <details class="faq-toggle"><summary>🌇 Does it have a balcony?</summary><div>Yes, some units have balconies.</div></details>
+            <details class="faq-toggle"><summary><b>🌇 Does it have a balcony?</b></summary><div>Yes, some units have balconies.</div></details>
           </td></tr>
           <tr><td style="border:1px solid #ddd;padding:10px;">
-            <details class="faq-toggle"><summary>⏰ What are the check-in/out times?</summary><div>Check-in from 16:00, check-out until 11:00.</div></details>
+            <details class="faq-toggle"><summary><b>⏰ What are the check-in/out times?</b></summary><div>Check-in from 16:00, check-out until 11:00.</div></details>
           </td></tr>
           <tr><td style="border:1px solid #ddd;padding:10px;">
-            <details class="faq-toggle"><summary>🛏️ How many bedrooms?</summary><div>1 bedroom.</div></details>
+            <details class="faq-toggle"><summary><b>🛏️ How many bedrooms?</b></summary><div>1 bedroom.</div></details>
           </td></tr>
           <tr><td style="border:1px solid #ddd;padding:10px;">
-            <details class="faq-toggle"><summary>💰 Cost of stay?</summary><div>Depends on date. Enter your dates to check price.</div></details>
+            <details class="faq-toggle"><summary><b>💰 Cost of stay?</b></summary><div>Depends on date. Enter your dates to check price.</div></details>
           </td></tr>
           <tr><td style="border:1px solid #ddd;padding:10px;">
-            <details class="faq-toggle"><summary>📍 Distance from Tokyo center?</summary><div>About 8 km.</div></details>
+            <details class="faq-toggle"><summary><b>📍 Distance from Tokyo center?</b></summary><div>About 8 km.</div></details>
           </td></tr>
           <tr><td style="border:1px solid #ddd;padding:10px;">
-            <details class="faq-toggle"><summary>👨‍👩‍👧 Family friendly?</summary><div>Yes, popular with families.</div></details>
+            <details class="faq-toggle"><summary><b>👨‍👩‍👧 Family friendly?</b></summary><div>Yes, popular with families.</div></details>
           </td></tr>
         </table>
       </div>
