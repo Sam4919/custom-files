@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
 setTimeout(function () {
   const isJapanese = document.documentElement.lang?.startsWith("ja") || navigator.language.startsWith("ja");
   const target = document.getElementById("collapse58283030");
@@ -41,7 +42,9 @@ setTimeout(function () {
         cursor: pointer;
         list-style: none;
         position: relative;
+        font-weight: bold;
         padding-right: 20px;
+        margin-bottom: 6px;
       }
       details.faq-toggle summary::after {
         content: "∨";
@@ -50,6 +53,10 @@ setTimeout(function () {
       }
       details.faq-toggle[open] summary::after {
         content: "∧";
+      }
+      details.faq-toggle > div {
+        margin-top: 10px;
+        transition: all 0.3s ease;
       }
     </style>
 
@@ -141,4 +148,5 @@ setTimeout(function () {
     )
   );
 }, 800);
+
 
