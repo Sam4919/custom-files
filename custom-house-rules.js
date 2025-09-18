@@ -17,12 +17,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
 setTimeout(function () {
   const isJapanese = document.documentElement.lang?.startsWith("ja") || navigator.language.startsWith("ja");
   const target = document.getElementById("collapse58283030");
   if (!target) return;
 
   const container = document.createElement("div");
+  container.style.maxWidth = "820px";
+  container.style.margin = "0 auto";
 
   container.innerHTML = `
     <table style='width:100%; border-collapse:collapse; margin:18px 0; font-family:sans-serif; font-size:13px;'>
@@ -91,33 +94,27 @@ setTimeout(function () {
   const sectionRules = document.getElementById("collapseHouseRules");
   const sectionFaqs = document.getElementById("collapseFAQs");
 
-  function toggleSection(showSection, hideSection, btnThis, btnOther, labelThis, labelOther) {
-    const isOpen = showSection.style.display === "block";
-    if (isOpen) {
-      showSection.style.display = "none";
-      btnThis.innerHTML = "▼ " + labelThis;
-    } else {
-      showSection.style.display = "block";
-      hideSection.style.display = "none";
-      btnThis.innerHTML = "▲ Close " + labelThis;
-      btnOther.innerHTML = "▼ " + labelOther;
-    }
+  function toggle(sectionToShow, sectionToHide, btnThis, btnOther, labelThis, labelOther) {
+    const isOpen = sectionToShow.classList.contains("open");
+    sectionToShow.classList.toggle("open", !isOpen);
+    sectionToShow.style.display = !isOpen ? "block" : "none";
+    sectionToHide.classList.remove("open");
+    sectionToHide.style.display = "none";
+    btnThis.innerHTML = (isOpen ? "▼ " : "▲ Close ") + labelThis;
+    btnOther.innerHTML = "▼ " + labelOther;
   }
 
-  btnRules.addEventListener("click", () => {
-    toggleSection(sectionRules, sectionFaqs, btnRules, btnFaqs,
+  btnRules.addEventListener("click", () =>
+    toggle(sectionRules, sectionFaqs, btnRules, btnFaqs,
       isJapanese ? "🏠 ハウスルール" : "🏠 House Rules",
       isJapanese ? "❓ よくある質問" : "❓ FAQs"
-    );
-  });
+    )
+  );
 
-  btnFaqs.addEventListener("click", () => {
-    toggleSection(sectionFaqs, sectionRules, btnFaqs, btnRules,
+  btnFaqs.addEventListener("click", () =>
+    toggle(sectionFaqs, sectionRules, btnFaqs, btnRules,
       isJapanese ? "❓ よくある質問" : "❓ FAQs",
       isJapanese ? "🏠 ハウスルール" : "🏠 House Rules"
-    );
-  });
+    )
+  );
 }, 800);
-
-
-
