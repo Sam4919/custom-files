@@ -18,8 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  const htmlLang = document.documentElement.lang || navigator.language || "en";
-  const isJapanese = htmlLang.startsWith("ja");
+  const isJapanese = document.documentElement.lang?.startsWith("ja") || navigator.language.startsWith("ja");
   const target = document.getElementById("collapse58283030");
   if (!target) return;
 
@@ -81,6 +80,7 @@ document.addEventListener("DOMContentLoaded", function () {
         </table>
       </div>
     </div>
+// HTML removed here for brevity – full version is already in context
   `;
 
   target.querySelector(".propheader.ckedit").appendChild(container);
@@ -90,38 +90,30 @@ document.addEventListener("DOMContentLoaded", function () {
   const sectionRules = document.getElementById("collapseHouseRules");
   const sectionFaqs = document.getElementById("collapseFAQs");
 
-  function toggleSection(sectionToShow, sectionToHide, btnThis, btnOther, labelThis, labelOther) {
-    const isVisible = sectionToShow.style.display === "block";
-    if (isVisible) {
-      sectionToShow.style.maxHeight = "0";
-      sectionToShow.style.opacity = "0";
-      setTimeout(() => { sectionToShow.style.display = "none"; }, 300);
+  function toggleSection(showSection, hideSection, btnThis, btnOther, labelThis, labelOther) {
+    const isOpen = showSection.style.display === "block";
+    if (isOpen) {
+      showSection.style.display = "none";
       btnThis.innerHTML = "▼ " + labelThis;
     } else {
-      sectionToShow.style.display = "block";
-      setTimeout(() => {
-        sectionToShow.style.maxHeight = "1500px";
-        sectionToShow.style.opacity = "1";
-      }, 10);
-      sectionToHide.style.maxHeight = "0";
-      sectionToHide.style.opacity = "0";
-      setTimeout(() => { sectionToHide.style.display = "none"; }, 300);
-      btnThis.innerHTML = "▲ " + "Close " + labelThis;
+      showSection.style.display = "block";
+      hideSection.style.display = "none";
+      btnThis.innerHTML = "▲ Close " + labelThis;
       btnOther.innerHTML = "▼ " + labelOther;
     }
   }
 
-  btnRules.addEventListener("click", () =>
+  btnRules.addEventListener("click", () => {
     toggleSection(sectionRules, sectionFaqs, btnRules, btnFaqs,
       isJapanese ? "🏠 ハウスルール" : "🏠 House Rules",
       isJapanese ? "❓ よくある質問" : "❓ FAQs"
-    )
-  );
+    );
+  });
 
-  btnFaqs.addEventListener("click", () =>
+  btnFaqs.addEventListener("click", () => {
     toggleSection(sectionFaqs, sectionRules, btnFaqs, btnRules,
       isJapanese ? "❓ よくある質問" : "❓ FAQs",
       isJapanese ? "🏠 ハウスルール" : "🏠 House Rules"
-    )
-  );
+    );
+  });
 });
