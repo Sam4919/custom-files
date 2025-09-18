@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
 setTimeout(function () {
   const isJapanese = document.documentElement.lang?.startsWith("ja") || navigator.language.startsWith("ja");
   const target = document.getElementById("collapse58283030");
@@ -27,6 +26,33 @@ setTimeout(function () {
   container.style.margin = "0 auto";
 
   container.innerHTML = `
+    <style>
+      .slide-section {
+        overflow: hidden;
+        max-height: 0;
+        opacity: 0;
+        transition: max-height 0.5s ease, opacity 0.5s ease;
+      }
+      .slide-section.open {
+        max-height: 2000px;
+        opacity: 1;
+      }
+      details.faq-toggle summary {
+        cursor: pointer;
+        list-style: none;
+        position: relative;
+        padding-right: 20px;
+      }
+      details.faq-toggle summary::after {
+        content: "∨";
+        position: absolute;
+        right: 0;
+      }
+      details.faq-toggle[open] summary::after {
+        content: "∧";
+      }
+    </style>
+
     <table style='width:100%; border-collapse:collapse; margin:18px 0; font-family:sans-serif; font-size:13px;'>
       <tr>
         <td style='width:50%; text-align:center; background:#e3e3e3; border:1px solid #aaa; cursor:pointer; padding:10px; font-weight:bold;' id='btnRules'>
@@ -39,47 +65,47 @@ setTimeout(function () {
     </table>
 
     <!-- HOUSE RULES -->
-    <div id="collapseHouseRules" style="display:none; margin-bottom:12px;">
+    <div id="collapseHouseRules" class="slide-section">
       <div class="propheader ckedit" style="font-family:sans-serif;font-size:13px;">
         <table style="width:100%;border-collapse:collapse;">
-          <tr><td style="border:1px solid #ddd;padding:8px;"><b>⏰ Check-in</b><br>From 16:00 to 18:00<br>Guests are required to show a photo ID and credit card upon check-in. You’ll need to let the property know in advance what time you’ll arrive.</td></tr>
-          <tr><td style="border:1px solid #ddd;padding:8px;"><b>⏰ Check-out</b><br>From 10:00 to 11:00</td></tr>
-          <tr><td style="border:1px solid #ddd;padding:8px;"><b>❌ Cancellation / prepayment</b><br>Cancellation and prepayment policies vary according to accommodation type. Please <a href="#">enter the dates of your stay</a> and check the conditions of your required option.</td></tr>
-          <tr><td style="border:1px solid #ddd;padding:8px;"><b>💥 Damage policy</b><br>If you cause damage to the property during your stay, you could be asked to pay up to ¥15,000 after check-out, according to this property’s <a href="#">Damage Policy</a>.</td></tr>
-          <tr><td style="border:1px solid #ddd;padding:8px;"><b>👨‍👩‍👧 Children and beds</b><br><u>Child policies:</u> Children of any age are welcome.<br><br><u>Cot and extra bed policies:</u> No cots available. Extra beds are subject to availability.</td></tr>
-          <tr><td style="border:1px solid #ddd;padding:8px;"><b>🚫 No age restriction</b><br>There is no age requirement for check-in.</td></tr>
-          <tr><td style="border:1px solid #ddd;padding:8px;"><b>🚭 Smoking</b><br>Smoking is not allowed.</td></tr>
-          <tr><td style="border:1px solid #ddd;padding:8px;"><b>🎉 Parties</b><br>Parties/events are not allowed.</td></tr>
-          <tr><td style="border:1px solid #ddd;padding:8px;"><b>🔇 Quiet hours</b><br>Guests must be quiet between 23:00 and 19:00.</td></tr>
-          <tr><td style="border:1px solid #ddd;padding:8px;"><b>🐾 Pets</b><br>Pets are not allowed.</td></tr>
+          <tr><td style="border:1px solid #ddd;padding:10px;"><b>⏰ Check-in</b><br>From 16:00 to 18:00<br>Guests must show a photo ID and credit card upon check-in.</td></tr>
+          <tr><td style="border:1px solid #ddd;padding:10px;"><b>⏰ Check-out</b><br>From 10:00 to 11:00</td></tr>
+          <tr><td style="border:1px solid #ddd;padding:10px;"><b>❌ Cancellation / prepayment</b><br>Varies by plan. Please <a href="#">enter your dates</a> to see conditions.</td></tr>
+          <tr><td style="border:1px solid #ddd;padding:10px;"><b>💥 Damage policy</b><br>Damage may be charged up to ¥15,000 after check-out.</td></tr>
+          <tr><td style="border:1px solid #ddd;padding:10px;"><b>👨‍👩‍👧 Children and beds</b><br><u>Children:</u> All ages welcome.<br><u>Cots/extra beds:</u> Not available. Limited extra beds.</td></tr>
+          <tr><td style="border:1px solid #ddd;padding:10px;"><b>🚫 No age restriction</b><br>No age requirement for check-in.</td></tr>
+          <tr><td style="border:1px solid #ddd;padding:10px;"><b>🚭 Smoking</b><br>Not allowed.</td></tr>
+          <tr><td style="border:1px solid #ddd;padding:10px;"><b>🎉 Parties</b><br>Not allowed.</td></tr>
+          <tr><td style="border:1px solid #ddd;padding:10px;"><b>🔇 Quiet hours</b><br>23:00 to 19:00</td></tr>
+          <tr><td style="border:1px solid #ddd;padding:10px;"><b>🐾 Pets</b><br>Not allowed.</td></tr>
         </table>
       </div>
     </div>
 
     <!-- FAQS -->
-    <div id="collapseFAQs" style="display:none;">
+    <div id="collapseFAQs" class="slide-section">
       <div class="propheader ckedit" style="font-family:sans-serif;font-size:13px;">
         <table style="width:100%;border-collapse:collapse;">
-          <tr><td style="border:1px solid #ddd;padding:8px;">
-            <details><summary style="cursor:pointer;font-weight:600;">👥 How many guests can sleep at MEET IN SKYtree?</summary><div style="margin-top:4px;">Up to 12 guests.</div></details>
+          <tr><td style="border:1px solid #ddd;padding:10px;">
+            <details class="faq-toggle"><summary>👥 How many guests?</summary><div>Up to 12 guests depending on room type.</div></details>
           </td></tr>
-          <tr><td style="border:1px solid #ddd;padding:8px;">
-            <details><summary style="cursor:pointer;font-weight:600;">🌇 Does it have a balcony?</summary><div style="margin-top:4px;">Yes, some options have a balcony.</div></details>
+          <tr><td style="border:1px solid #ddd;padding:10px;">
+            <details class="faq-toggle"><summary>🌇 Does it have a balcony?</summary><div>Yes, some units have balconies.</div></details>
           </td></tr>
-          <tr><td style="border:1px solid #ddd;padding:8px;">
-            <details><summary style="cursor:pointer;font-weight:600;">⏰ What are the check-in and check-out times?</summary><div style="margin-top:4px;">Check-in is from 16:00, check-out until 11:00.</div></details>
+          <tr><td style="border:1px solid #ddd;padding:10px;">
+            <details class="faq-toggle"><summary>⏰ What are the check-in/out times?</summary><div>Check-in from 16:00, check-out until 11:00.</div></details>
           </td></tr>
-          <tr><td style="border:1px solid #ddd;padding:8px;">
-            <details><summary style="cursor:pointer;font-weight:600;">🛏️ How many bedrooms?</summary><div style="margin-top:4px;">1 bedroom</div></details>
+          <tr><td style="border:1px solid #ddd;padding:10px;">
+            <details class="faq-toggle"><summary>🛏️ How many bedrooms?</summary><div>1 bedroom.</div></details>
           </td></tr>
-          <tr><td style="border:1px solid #ddd;padding:8px;">
-            <details><summary style="cursor:pointer;font-weight:600;">💰 How much does it cost?</summary><div style="margin-top:4px;">Varies by date. Enter your dates to see pricing.</div></details>
+          <tr><td style="border:1px solid #ddd;padding:10px;">
+            <details class="faq-toggle"><summary>💰 Cost of stay?</summary><div>Depends on date. Enter your dates to check price.</div></details>
           </td></tr>
-          <tr><td style="border:1px solid #ddd;padding:8px;">
-            <details><summary style="cursor:pointer;font-weight:600;">📍 How far from central Tokyo?</summary><div style="margin-top:4px;">8 km from central Tokyo.</div></details>
+          <tr><td style="border:1px solid #ddd;padding:10px;">
+            <details class="faq-toggle"><summary>📍 Distance from Tokyo center?</summary><div>About 8 km.</div></details>
           </td></tr>
-          <tr><td style="border:1px solid #ddd;padding:8px;">
-            <details><summary style="cursor:pointer;font-weight:600;">👨‍👩‍👧 Is it family-friendly?</summary><div style="margin-top:4px;">Yes, very popular with families.</div></details>
+          <tr><td style="border:1px solid #ddd;padding:10px;">
+            <details class="faq-toggle"><summary>👨‍👩‍👧 Family friendly?</summary><div>Yes, popular with families.</div></details>
           </td></tr>
         </table>
       </div>
@@ -96,9 +122,7 @@ setTimeout(function () {
   function toggle(sectionToShow, sectionToHide, btnThis, btnOther, labelThis, labelOther) {
     const isOpen = sectionToShow.classList.contains("open");
     sectionToShow.classList.toggle("open", !isOpen);
-    sectionToShow.style.display = !isOpen ? "block" : "none";
     sectionToHide.classList.remove("open");
-    sectionToHide.style.display = "none";
     btnThis.innerHTML = (isOpen ? "▼ " : "▲ Close ") + labelThis;
     btnOther.innerHTML = "▼ " + labelOther;
   }
