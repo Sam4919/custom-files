@@ -75,16 +75,16 @@ setTimeout(function () {
     <div id="collapseHouseRules" class="slide-section">
       <div class="propheader ckedit" style="font-family:sans-serif;font-size:13px;">
         <table style="width:100%;border-collapse:collapse;">
-          <tr><td style="border:1px solid #ddd;padding:10px;"><b>⏰ Check-in</b><br>From 16:00 to 18:00<br>Guests must show a photo ID and credit card upon check-in.</td></tr>
-          <tr><td style="border:1px solid #ddd;padding:10px;"><b>⏰ Check-out</b><br>From 10:00 to 11:00</td></tr>
-          <tr><td style="border:1px solid #ddd;padding:10px;"><b>❌ Cancellation / prepayment</b><br>Varies by plan. Please <a href="#">enter your dates</a> to see conditions.</td></tr>
-          <tr><td style="border:1px solid #ddd;padding:10px;"><b>💥 Damage policy</b><br>Damage may be charged up to ¥15,000 after check-out.</td></tr>
-          <tr><td style="border:1px solid #ddd;padding:10px;"><b>👨‍👩‍👧 Children and beds</b><br><u>Children:</u> All ages welcome.<br><u>Cots/extra beds:</u> Not available. Limited extra beds.</td></tr>
-          <tr><td style="border:1px solid #ddd;padding:10px;"><b>🚫 No age restriction</b><br>No age requirement for check-in.</td></tr>
-          <tr><td style="border:1px solid #ddd;padding:10px;"><b>🚭 Smoking</b><br>Not allowed.</td></tr>
-          <tr><td style="border:1px solid #ddd;padding:10px;"><b>🎉 Parties</b><br>Not allowed.</td></tr>
-          <tr><td style="border:1px solid #ddd;padding:10px;"><b>🔇 Quiet hours</b><br>23:00 to 19:00</td></tr>
-          <tr><td style="border:1px solid #ddd;padding:10px;"><b>🐾 Pets</b><br>Not allowed.</td></tr>
+          <tr><td style="border:1px solid #ddd;padding:10px;"><b>⏰ Check-in</b><br>From 16:00 to 18:00<div>Guests must show a photo ID and credit card upon check-in.</div></td></tr>
+          <tr><td style="border:1px solid #ddd;padding:10px;"><b>⏰ Check-out</b><div>From 10:00 to 11:00</div></td></tr>
+          <tr><td style="border:1px solid #ddd;padding:10px;"><b>❌ Cancellation / prepayment</b><div>Varies by plan. Please <a href="#">enter your dates</a> to see conditions.</div></td></tr>
+          <tr><td style="border:1px solid #ddd;padding:10px;"><b>💥 Damage policy</b><div>Damage may be charged up to ¥15,000 after check-out.</div></td></tr>
+          <tr><td style="border:1px solid #ddd;padding:10px;"><b>👨‍👩‍👧 Children and beds</b><div><u>Children:</u> All ages welcome.<br><u>Cots/extra beds:</u> Not available. Limited extra beds.</div></td></tr>
+          <tr><td style="border:1px solid #ddd;padding:10px;"><b>🚫 No age restriction</b><div>No age requirement for check-in.</div></td></tr>
+          <tr><td style="border:1px solid #ddd;padding:10px;"><b>🚭 Smoking</b><div>Not allowed.</div></td></tr>
+          <tr><td style="border:1px solid #ddd;padding:10px;"><b>🎉 Parties</b><div>Not allowed.</div></td></tr>
+          <tr><td style="border:1px solid #ddd;padding:10px;"><b>🔇 Quiet hours</b><div>23:00 to 19:00</div></td></tr>
+          <tr><td style="border:1px solid #ddd;padding:10px;"><b>🐾 Pets</b><div>Not allowed.</div></td></tr>
         </table>
       </div>
     </div>
