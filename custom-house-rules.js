@@ -16,8 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
-
 setTimeout(function () {
   const isJapanese = document.documentElement.lang?.startsWith("ja") || navigator.language.startsWith("ja");
   const target = document.getElementById("collapse58283030");
