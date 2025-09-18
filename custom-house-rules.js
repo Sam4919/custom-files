@@ -17,8 +17,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-// trimmed in assistant view for brevity — full code exists above and will be written to file
-document.addEventListener("DOMContentLoaded", function () {
+setTimeout(function () {
   const isJapanese = document.documentElement.lang?.startsWith("ja") || navigator.language.startsWith("ja");
   const target = document.getElementById("collapse58283030");
   if (!target) return;
@@ -37,47 +36,49 @@ document.addEventListener("DOMContentLoaded", function () {
       </tr>
     </table>
 
-    <div id="collapseHouseRules" style="display:none; margin-bottom:12px; overflow:hidden; max-height:0; transition: max-height 0.4s ease, opacity 0.3s ease; opacity:0;">
+    <!-- HOUSE RULES -->
+    <div id="collapseHouseRules" style="display:none; margin-bottom:12px;">
       <div class="propheader ckedit" style="font-family:sans-serif;font-size:13px;">
         <table style="width:100%;border-collapse:collapse;">
-          <tr><td style="border:1px solid #ccc;padding:10px;">🕓 <b>${isJapanese ? "チェックイン" : "Check-in"}</b><br>${isJapanese ? "16:00～18:00。チェックイン時に身分証明書とクレジットカードが必要です。" : "16:00–18:00. Guests must show photo ID & credit card."}</td></tr>
-          <tr><td style="border:1px solid #ccc;padding:10px;">⏰ <b>${isJapanese ? "チェックアウト" : "Check-out"}</b><br>${isJapanese ? "10:00～11:00" : "10:00–11:00"}</td></tr>
-          <tr><td style="border:1px solid #ccc;padding:10px;">❌ <b>${isJapanese ? "キャンセル" : "Cancellation"}</b><br>${isJapanese ? "チェックインの2日前までのキャンセルは全額返金。それ以降は全額請求されます。" : "Cancel up to 2 days before = full refund. Later = full charge."}</td></tr>
-          <tr><td style="border:1px solid #ccc;padding:10px;">👶 <b>${isJapanese ? "お子様" : "Children"}</b><br>${isJapanese ? "すべての年齢のお子様が宿泊可能。ベビーベッドなし。エキストラベッドは数に限りあり。" : "All ages welcome. No cots. Extra beds limited."}</td></tr>
-          <tr><td style="border:1px solid #ccc;padding:10px;">🚭 <b>${isJapanese ? "喫煙" : "Smoking"}</b><br>${isJapanese ? "館内禁煙です。" : "Not allowed inside the property."}</td></tr>
-          <tr><td style="border:1px solid #ccc;padding:10px;">🎉 <b>${isJapanese ? "パーティー" : "Parties"}</b><br>${isJapanese ? "パーティーは禁止されています。" : "Not allowed."}</td></tr>
-          <tr><td style="border:1px solid #ccc;padding:10px;">🐾 <b>${isJapanese ? "ペット" : "Pets"}</b><br>${isJapanese ? "ペットの同伴はできません。" : "Not allowed."}</td></tr>
+          <tr><td style="border:1px solid #ddd;padding:8px;"><b>⏰ Check-in</b><br>From 16:00 to 18:00<br>Guests are required to show a photo ID and credit card upon check-in. You’ll need to let the property know in advance what time you’ll arrive.</td></tr>
+          <tr><td style="border:1px solid #ddd;padding:8px;"><b>⏰ Check-out</b><br>From 10:00 to 11:00</td></tr>
+          <tr><td style="border:1px solid #ddd;padding:8px;"><b>❌ Cancellation / prepayment</b><br>Cancellation and prepayment policies vary according to accommodation type. Please <a href="#">enter the dates of your stay</a> and check the conditions of your required option.</td></tr>
+          <tr><td style="border:1px solid #ddd;padding:8px;"><b>💥 Damage policy</b><br>If you cause damage to the property during your stay, you could be asked to pay up to ¥15,000 after check-out, according to this property’s <a href="#">Damage Policy</a>.</td></tr>
+          <tr><td style="border:1px solid #ddd;padding:8px;"><b>👨‍👩‍👧 Children and beds</b><br><u>Child policies:</u> Children of any age are welcome.<br><br><u>Cot and extra bed policies:</u> No cots available. Extra beds are subject to availability.</td></tr>
+          <tr><td style="border:1px solid #ddd;padding:8px;"><b>🚫 No age restriction</b><br>There is no age requirement for check-in.</td></tr>
+          <tr><td style="border:1px solid #ddd;padding:8px;"><b>🚭 Smoking</b><br>Smoking is not allowed.</td></tr>
+          <tr><td style="border:1px solid #ddd;padding:8px;"><b>🎉 Parties</b><br>Parties/events are not allowed.</td></tr>
+          <tr><td style="border:1px solid #ddd;padding:8px;"><b>🔇 Quiet hours</b><br>Guests must be quiet between 23:00 and 19:00.</td></tr>
+          <tr><td style="border:1px solid #ddd;padding:8px;"><b>🐾 Pets</b><br>Pets are not allowed.</td></tr>
         </table>
       </div>
     </div>
 
-    <div id="collapseFAQs" style="display:none; overflow:hidden; max-height:0; transition: max-height 0.4s ease, opacity 0.3s ease; opacity:0;">
+    <!-- FAQS -->
+    <div id="collapseFAQs" style="display:none;">
       <div class="propheader ckedit" style="font-family:sans-serif;font-size:13px;">
         <table style="width:100%;border-collapse:collapse;">
-          <tr>
-            <td style="border:1px solid #ccc;padding:10px;">
-              <details>
-                <summary>👥 ${isJapanese ? "何人まで泊まれますか？" : "How many guests can stay?"}</summary>
-                <div>${isJapanese ? "最大12名様まで、部屋のタイプによります。" : "Up to 12 guests depending on room type."}</div>
-              </details>
-            </td>
-          </tr>
-          <tr>
-            <td style="border:1px solid #ccc;padding:10px;">
-              <details>
-                <summary>⏰ ${isJapanese ? "チェックイン・チェックアウト時間は？" : "What are the check-in/out times?"}</summary>
-                <div>${isJapanese ? "チェックインは16:00から / チェックアウトは11:00まで" : "Check-in from 16:00 / Check-out until 11:00."}</div>
-              </details>
-            </td>
-          </tr>
-          <tr>
-            <td style="border:1px solid #ccc;padding:10px;">
-              <details>
-                <summary>👨‍👩‍👧 ${isJapanese ? "ファミリー向けですか？" : "Is the property family-friendly?"}</summary>
-                <div>${isJapanese ? "はい。ご家族連れにも人気の施設です。" : "Yes, MEET IN SKYtree is popular with families."}</div>
-              </details>
-            </td>
-          </tr>
+          <tr><td style="border:1px solid #ddd;padding:8px;">
+            <details><summary style="cursor:pointer;font-weight:600;">👥 How many guests can sleep at MEET IN SKYtree?</summary><div style="margin-top:4px;">Up to 12 guests.</div></details>
+          </td></tr>
+          <tr><td style="border:1px solid #ddd;padding:8px;">
+            <details><summary style="cursor:pointer;font-weight:600;">🌇 Does it have a balcony?</summary><div style="margin-top:4px;">Yes, some options have a balcony.</div></details>
+          </td></tr>
+          <tr><td style="border:1px solid #ddd;padding:8px;">
+            <details><summary style="cursor:pointer;font-weight:600;">⏰ What are the check-in and check-out times?</summary><div style="margin-top:4px;">Check-in is from 16:00, check-out until 11:00.</div></details>
+          </td></tr>
+          <tr><td style="border:1px solid #ddd;padding:8px;">
+            <details><summary style="cursor:pointer;font-weight:600;">🛏️ How many bedrooms?</summary><div style="margin-top:4px;">1 bedroom</div></details>
+          </td></tr>
+          <tr><td style="border:1px solid #ddd;padding:8px;">
+            <details><summary style="cursor:pointer;font-weight:600;">💰 How much does it cost?</summary><div style="margin-top:4px;">Varies by date. Enter your dates to see pricing.</div></details>
+          </td></tr>
+          <tr><td style="border:1px solid #ddd;padding:8px;">
+            <details><summary style="cursor:pointer;font-weight:600;">📍 How far from central Tokyo?</summary><div style="margin-top:4px;">8 km from central Tokyo.</div></details>
+          </td></tr>
+          <tr><td style="border:1px solid #ddd;padding:8px;">
+            <details><summary style="cursor:pointer;font-weight:600;">👨‍👩‍👧 Is it family-friendly?</summary><div style="margin-top:4px;">Yes, very popular with families.</div></details>
+          </td></tr>
         </table>
       </div>
     </div>
@@ -116,14 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
       isJapanese ? "🏠 ハウスルール" : "🏠 House Rules"
     );
   });
-});
+}, 800);
 
 
-  btnFaqs.addEventListener("click", () =>
-    toggleSection(sectionFaqs, sectionRules, btnFaqs, btnRules,
-      isJapanese ? "❓ よくある質問" : "❓ FAQs",
-      isJapanese ? "🏠 ハウスルール" : "🏠 House Rules"
-    )
-  );
-});
 
