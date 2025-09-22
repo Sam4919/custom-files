@@ -31,6 +31,12 @@ setTimeout(function () {
 
   container.innerHTML = `
     <style>
+    /* Widen the Bootstrap column that contains the custom content */
+      .b24-prop-module.b24-prop-58 {
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
+      }
       .slide-section {
         overflow: hidden;
         max-height: 0;
