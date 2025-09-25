@@ -16,7 +16,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
 setTimeout(function () {
   const isJapanese =
     document.documentElement.lang?.toLowerCase().startsWith("ja") ||
