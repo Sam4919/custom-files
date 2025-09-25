@@ -351,24 +351,4 @@ ol.amenities li {
   100% { box-shadow: 0 0 10px rgba(10,124,255, 0.4); }
 }
 
-/* ========================================
-   📦 4. Optional enhancements for House Rules + FAQ
-======================================== 
-.propheader.ckedit table {
-  border-collapse: collapse;
-  width: 100%;
-}
-.propheader.ckedit td {
-  border: 1px solid #ccc;
-  padding: 6px;
-  font-size: 13px;
-  color: #444;
-}
-.propheader.ckedit summary {
-  cursor: pointer;
-  font-weight: 600;
-  color: #2c3e50;
-}
-.propheader.ckedit details[open] summary {
-  color: #0a7cff;
-}*/
+
