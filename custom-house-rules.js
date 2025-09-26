@@ -164,6 +164,11 @@ setTimeout(function () {
     slot.appendChild(container);
   }
 
+  btnThis.innerHTML = (isOpen ? "▼ " : "▲ Close ") + labelThis;
+  btnOther.innerHTML = "▼ " + labelOther;
+}
+
+
   btnRules.addEventListener("click", () =>
     toggle(sectionRules, sectionFaqs, btnRules, btnFaqs,
       isJapanese ? "🏠 ハウスルール" : "🏠 House Rules",
