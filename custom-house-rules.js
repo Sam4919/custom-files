@@ -66,6 +66,23 @@ setTimeout(function () {
     margin-top: 10px;
     transition: all 0.3s ease;
   }
+/* ✅ Added styles for spacing and indent */
+    .slide-section td b {
+      display: block;
+      margin-bottom: 4px;
+    }
+    .slide-section td b + br {
+      display: none; /* remove useless line-break after <b> */
+    }
+    .slide-section td {
+      font-size: 13px;
+      font-family: sans-serif;
+      line-height: 1.6;
+    }
+    .slide-section td b + br + * {
+      display: block;
+      padding-left: 10px;
+    }
 </style>
 
 <table style='width:100%; border-collapse:collapse; margin:18px 0; font-family:sans-serif; font-size:13px;'>
@@ -138,11 +155,14 @@ setTimeout(function () {
   const sectionFaqs = document.getElementById("collapseFAQs");
 
   function toggle(sectionToShow, sectionToHide, btnThis, btnOther, labelThis, labelOther) {
-    const isOpen = sectionToShow.classList.contains("open");
-    sectionToShow.classList.toggle("open", !isOpen);
-    sectionToHide.classList.remove("open");
-    btnThis.innerHTML = (isOpen ? "▼ " : "▲ Close ") + labelThis;
-    btnOther.innerHTML = "▼ " + labelOther;
+  const isOpen = sectionToShow.classList.contains("open");
+  sectionToShow.classList.toggle("open", !isOpen);
+  sectionToHide.classList.remove("open");
+
+  // Reattach container if needed (in case DOM was cleared by Beds24 toggle)
+  const slot = target.querySelector(".propheader.ckedit");
+  if (slot && !slot.contains(container)) {
+    slot.appendChild(container);
   }
 
   btnRules.addEventListener("click", () =>
