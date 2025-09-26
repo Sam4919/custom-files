@@ -66,17 +66,22 @@ setTimeout(function () {
     transition: all 0.3s ease;
   }
 /* Added styles for spacing and indent */
-    .slide-section td {
-    line-height: 1.5;
-  }
   .slide-section td b {
-    display: block;
-    margin-bottom: 10px;
-  }
-  .slide-section td b + br + text,
-  .slide-section td b + br {
-    padding-left: 10px;
-  }
+      display: block;
+      margin-bottom: 5px;
+    }
+    .slide-section td b + br {
+      display: none;
+    }
+    .slide-section td {
+      font-size: 13px;
+      font-family: sans-serif;
+      line-height: 1.6;
+    }
+    .slide-section td b + br + * {
+      display: block;
+      padding-left: 10px;
+    }
 
 </style>
 
