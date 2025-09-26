@@ -29,43 +29,61 @@ setTimeout(function () {
   container.style.margin = "0 auto";
 
   container.innerHTML = `
-    <style>
-  .b24-prop-module.b24-prop-58 {
-    width: 100% !important;
-    max-width: 100% !important;
-    flex: 0 0 100% !important;
-  }
-  .slide-section {
-    overflow: hidden;
-    max-height: 0;
-    opacity: 0;
-    transition: max-height 0.5s ease, opacity 0.5s ease;
-  }
-  .slide-section.open {
-    max-height: 2000px;
-    opacity: 1;
-  }
-  details.faq-toggle summary {
-    cursor: pointer;
-    list-style: none;
-    position: relative;
-    font-weight: bold;
-    padding-right: 20px;
-    margin-bottom: 6px;
-  }
-  details.faq-toggle summary::after {
-    content: "∨";
-    position: absolute;
-    right: 0;
-  }
-  details.faq-toggle[open] summary::after {
-    content: "∧";
-  }
-  details.faq-toggle > div {
-    margin-top: 10px;
-    transition: all 0.3s ease;
-  }
-</style>
+    container.innerHTML = `
+  <style>
+    .b24-prop-module.b24-prop-58 {
+      width: 100% !important;
+      max-width: 100% !important;
+      flex: 0 0 100% !important;
+    }
+    .slide-section {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height 0.5s ease, opacity 0.5s ease;
+    }
+    .slide-section.open {
+      max-height: 2000px;
+      opacity: 1;
+    }
+    details.faq-toggle summary {
+      cursor: pointer;
+      list-style: none;
+      position: relative;
+      font-weight: bold;
+      padding-right: 20px;
+      margin-bottom: 6px;
+    }
+    details.faq-toggle summary::after {
+      content: "∨";
+      position: absolute;
+      right: 0;
+    }
+    details.faq-toggle[open] summary::after {
+      content: "∧";
+    }
+    details.faq-toggle > div {
+      margin-top: 10px;
+      transition: all 0.3s ease;
+    }
+    /* ✅ Added styles for spacing and indent */
+    .slide-section td b {
+      display: block;
+      margin-bottom: 4px;
+    }
+    .slide-section td b + br {
+      display: none; /* remove useless line-break after <b> */
+    }
+    .slide-section td {
+      font-size: 13px;
+      font-family: sans-serif;
+      line-height: 1.6;
+    }
+    .slide-section td b + br + * {
+      display: block;
+      padding-left: 10px;
+    }
+  </style>
 
 <table style='width:100%; border-collapse:collapse; margin:18px 0; font-family:sans-serif; font-size:13px;'>
   <tr>
