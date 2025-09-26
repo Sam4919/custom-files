@@ -66,22 +66,18 @@ setTimeout(function () {
     transition: all 0.3s ease;
   }
 /* Added styles for spacing and indent */
-    .slide-section td b {
-      display: block;
-      margin-bottom: 4px;
-    }
-    .slide-section td b + br {
-      display: none; /* remove useless line-break after <b> */
-    }
     .slide-section td {
-      font-size: 13px;
-      font-family: sans-serif;
-      line-height: 1.6;
-    }
-    .slide-section td b + br + * {
-      display: block;
-      padding-left: 10px;
-    }
+    line-height: 1.5;
+  }
+  .slide-section td b {
+    display: block;
+    margin-bottom: 4px;
+  }
+  .slide-section td b + br + text,
+  .slide-section td b + br {
+    padding-left: 10px;
+  }
+
 </style>
 
 <table style='width:100%; border-collapse:collapse; margin:18px 0; font-family:sans-serif; font-size:13px;'>
