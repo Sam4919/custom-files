@@ -66,7 +66,7 @@ setTimeout(function () {
     margin-top: 10px;
     transition: all 0.3s ease;
   }
-/* ✅ Added styles for spacing and indent */
+/* Added styles for spacing and indent */
     .slide-section td b {
       display: block;
       margin-bottom: 4px;
