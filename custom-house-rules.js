@@ -25,16 +25,16 @@ setTimeout(function () {
   if (!target) return;
 
   const container = document.createElement("div");
-  container.style.maxWidth = "50%";
+  container.style.maxWidth = "100%";
   container.style.margin = "0 auto";
 
   container.innerHTML = `
     <style>
     /* Widen the Bootstrap column that contains the custom content */
       .b24-prop-module.b24-prop-58 {
-        width: 50% !important;
-        max-width: 50% !important;
-        flex: 0 0 50% !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        flex: 0 0 100% !important;
       }
       .slide-section {
         overflow: hidden;
