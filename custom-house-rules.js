@@ -29,8 +29,7 @@ setTimeout(function () {
   container.style.margin = "0 auto";
 
   container.innerHTML = `
-    container.innerHTML = `
-  <style>
+<style>
   .b24-prop-module.b24-prop-58 {
     width: 100% !important;
     max-width: 100% !important;
