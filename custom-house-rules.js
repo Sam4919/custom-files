@@ -25,7 +25,7 @@ setTimeout(function () {
   if (!target) return;
 
   const container = document.createElement("div");
-  container.style.maxWidth = "100%";
+  container.style.maxWidth = "50%";
   container.style.margin = "0 auto";
 
   container.innerHTML = `
