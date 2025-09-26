@@ -71,7 +71,7 @@ setTimeout(function () {
   }
   .slide-section td b {
     display: block;
-    margin-bottom: 4px;
+    margin-bottom: 10px;
   }
   .slide-section td b + br + text,
   .slide-section td b + br {
